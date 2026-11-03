@@ -635,6 +635,148 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         </div>
       )}
 
+      {/* TAB CONTENT: Hold Queues & Reservations */}
+      {activeAdminTab === 'reservations' && (
+        <div className="bg-white rounded-3xl p-6 border border-[#EAE7DF] shadow-xs space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[#F0EEE6] gap-2">
+            <div>
+              <h3 className="text-lg font-serif font-bold text-[#1D1D1F]">
+                Hold Queues & Member Reservations
+              </h3>
+              <p className="text-xs text-[#8A857A]">
+                FIFO hold queues for high-demand titles. Fulfill holds when physical copies return or assign ready inventory.
+              </p>
+            </div>
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200 self-start sm:self-auto">
+              {reservations.filter(r => r.status === 'READY' || r.status === 'PENDING').length} Active In Queue
+            </span>
+          </div>
+
+          {reservations.length === 0 ? (
+            <div className="text-center py-12 text-[#8A857A] space-y-2">
+              <Clock className="w-8 h-8 mx-auto opacity-40 text-stone-500" />
+              <p className="text-sm font-medium">No holds currently placed in the queue.</p>
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs">
+                <thead className="bg-[#FAF9F5] text-[#8A857A] uppercase text-[10px] font-bold tracking-wider">
+                  <tr>
+                    <th className="p-3">Hold ID</th>
+                    <th className="p-3">Member</th>
+                    <th className="p-3">Reserved Book</th>
+                    <th className="p-3 text-center">Queue Pos</th>
+                    <th className="p-3">Date Reserved</th>
+                    <th className="p-3">Status</th>
+                    <th className="p-3 text-right">Librarian Action</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#F0EEE6]">
+                  {reservations.map((res) => (
+                    <tr key={res.reservation_id} className="hover:bg-[#FAF9F5] transition-colors">
+                      <td className="p-3 font-mono text-[11px] text-[#8A857A]">
+                        {res.reservation_id}
+                      </td>
+                      <td className="p-3">
+                        <div className="font-bold text-[#1D1D1F]">{res.userName}</div>
+                        <div className="text-[10px] font-mono text-[#8A857A]">{res.user_id}</div>
+                      </td>
+                      <td className="p-3">
+                        <div className="flex items-center gap-2.5">
+                          {res.bookImage && (
+                            <img
+                              src={res.bookImage}
+                              alt={res.bookTitle}
+                              className="w-8 h-11 object-cover rounded shadow-2xs shrink-0"
+                            />
+                          )}
+                          <div>
+                            <button
+                              onClick={() => onSelectBook(res.book_id)}
+                              className="font-serif font-bold text-sm text-[#1D1D1F] hover:text-[#E06953] transition-colors text-left cursor-pointer"
+                            >
+                              {res.bookTitle}
+                            </button>
+                            {res.assignedCopyId && (
+                              <div className="text-[10px] text-emerald-700 font-mono">
+                                Barcode: {res.assignedCopyId}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </td>
+                      <td className="p-3 text-center">
+                        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-stone-100 font-bold font-mono text-xs text-[#1D1D1F]">
+                          #{res.queuePosition}
+                        </span>
+                      </td>
+                      <td className="p-3 text-[#656157]">
+                        <div>{res.reservation_date}</div>
+                        <div className="text-[10px] text-[#8A857A]">Expires: {res.expiry_date}</div>
+                      </td>
+                      <td className="p-3">
+                        <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                          res.status === 'READY'
+                            ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
+                            : res.status === 'PENDING'
+                            ? 'bg-amber-100 text-amber-800 border border-amber-200'
+                            : 'bg-stone-100 text-stone-600'
+                        }`}>
+                          {res.status === 'READY' ? 'Ready for Pickup' : res.status === 'PENDING' ? 'Waiting in Queue' : res.status}
+                        </span>
+                      </td>
+                      <td className="p-3 text-right">
+                        <div className="flex items-center justify-end gap-1.5">
+                          {res.status === 'READY' && (
+                            <button
+                              onClick={() => {
+                                const result = libraryService.borrowBook(res.book_id, res.assignedCopyId);
+                                if (result.success) {
+                                  libraryService.updateReservationStatus(res.reservation_id, 'FULFILLED');
+                                  alert(`Hold fulfilled! Book checked out to ${res.userName}.`);
+                                } else {
+                                  alert(result.message);
+                                }
+                              }}
+                              className="px-3 py-1 bg-emerald-700 hover:bg-emerald-800 text-white text-[11px] font-semibold rounded-full shadow-2xs transition-all cursor-pointer"
+                            >
+                              Issue Copy
+                            </button>
+                          )}
+                          {res.status === 'PENDING' && (
+                            <button
+                              onClick={() => {
+                                libraryService.updateReservationStatus(res.reservation_id, 'READY');
+                                alert(`Status updated to READY for ${res.userName}! Notification sent.`);
+                              }}
+                              className="px-3 py-1 bg-[#1D1D1F] hover:bg-[#333336] text-white text-[11px] font-medium rounded-full shadow-2xs transition-all cursor-pointer"
+                            >
+                              Mark Ready
+                            </button>
+                          )}
+                          {res.status !== 'CANCELLED' && res.status !== 'FULFILLED' && (
+                            <button
+                              onClick={() => {
+                                if (confirm(`Cancel reservation for ${res.userName}?`)) {
+                                  libraryService.cancelReservation(res.reservation_id);
+                                }
+                              }}
+                              className="px-2.5 py-1 text-stone-500 hover:text-red-600 text-[11px] font-medium transition-colors cursor-pointer"
+                            >
+                              Cancel
+                            </button>
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* TAB CONTENT: Fines & Waivers */}
       {activeAdminTab === 'fines' && (
         <div className="bg-white rounded-3xl p-6 border border-[#EAE7DF] shadow-xs space-y-4">

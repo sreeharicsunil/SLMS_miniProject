@@ -3,12 +3,17 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "scripts": {
     "dev": "node dev.js",
     "dev:single": "vite --port=3000 --host=0.0.0.0",
+    "server": "python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload",
+    "migrate": "python scripts/migrate_and_seed.py",
     "build": "vite build",
     "preview": "vite preview",
-    "clean": "rm -rf dist server.js",
+    "clean": "node scripts/clean.mjs",
     "lint": "tsc --noEmit"
   },
   "dependencies": {

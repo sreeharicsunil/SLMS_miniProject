@@ -48,8 +48,6 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
   const [showUserMenu, setShowUserMenu] = useState(false);
   const unreadCount = notifications.filter(n => !n.read).length;
 
-  const isPort3001 = typeof window !== 'undefined' && window.location.port === '3001';
-
   // Restrict navigation: Admin gets direct access to Library Operations Command
   const navItems = currentUser.role === 'admin'
     ? [
@@ -144,26 +142,13 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
 
           {/* Right Header Actions */}
           <div className="flex items-center gap-3">
-            {/* Dual port switcher badge */}
-            {isPort3001 ? (
-              <a
-                href="http://localhost:3000"
-                className="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1D1D1F] text-white text-[11px] font-medium hover:bg-[#333336] transition-colors"
-                title="Switch to Main App on Port 3000"
-              >
-                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                <span>Port 3001 (Admin) → Main (3000)</span>
-              </a>
-            ) : currentUser.role === 'admin' ? (
-              <a
-                href="http://localhost:3001"
-                className="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAE8E0] text-[#1D1D1F] text-[11px] font-medium hover:bg-[#DDD9CE] transition-colors border border-[#DDD9CE]"
-                title="Open Dedicated Admin Port on 3001"
-              >
+            {/* Admin status pill */}
+            {currentUser.role === 'admin' && (
+              <span className="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1D1D1F] text-white text-[11px] font-medium border border-white/10">
                 <Shield className="w-3 h-3 text-[#E06953]" />
-                <span>Admin Port: localhost:3001 ↗</span>
-              </a>
-            ) : null}
+                <span>Admin Console</span>
+              </span>
+            )}
 
             {/* Fine Warning Pill if member has unpaid fees (members only) */}
             {currentUser.role === 'member' && (

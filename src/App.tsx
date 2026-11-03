@@ -22,8 +22,6 @@ import { ReaderModal } from './components/books/ReaderModal';
 import { CheckCircle2, AlertCircle, X } from 'lucide-react';
 
 export default function App() {
-  const isPort3001 = typeof window !== 'undefined' && window.location.port === '3001';
-
   // Global State managed by LibraryService
   const [currentUser, setCurrentUser] = useState<User | null>(libraryService.getCurrentUser());
   const [books, setBooks] = useState<Book[]>(libraryService.getBooks());
@@ -37,10 +35,10 @@ export default function App() {
   const [notifications, setNotifications] = useState<LibraryNotification[]>(libraryService.getNotifications());
   const [wishlistBookIds, setWishlistBookIds] = useState<string[]>(['book-got-world']);
 
-  // Navigation State: If logged in as admin or on admin port 3001, default to 'admin' (Library Operations Command)
+  // Navigation State: If logged in as admin, default to 'admin' (Library Operations Command)
   const [activeTab, setActiveTab] = useState<ActiveTab>(() => {
     const user = libraryService.getCurrentUser();
-    if (user?.role === 'admin' || isPort3001) return 'admin';
+    if (user?.role === 'admin') return 'admin';
     return 'home';
   });
   const [selectedBookId, setSelectedBookId] = useState<string | null>(null);
@@ -49,8 +47,8 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
 
   // Unified Auth Modal & Feedback
-  const [showAuthModal, setShowAuthModal] = useState(isPort3001 && !libraryService.getCurrentUser());
-  const [authRole, setAuthRole] = useState<'admin' | 'member'>(isPort3001 ? 'admin' : 'member');
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [authRole, setAuthRole] = useState<'admin' | 'member'>('member');
   const [authMode, setAuthMode] = useState<'signin' | 'signup'>('signin');
   const [toastMessage, setToastMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
 

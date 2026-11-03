@@ -12,7 +12,55 @@ interface LibraryAIChatProps {
   initialPrompt?: string;
 }
 
-export const LibraryAIChat: React.FC<LibraryAIChatProps> = ({ onSelectBook, initialPrompt }) => {
+// Error Boundary to prevent AI assistant crashes from rendering a white blank screen
+class ChatErrorBoundary extends React.Component<
+  { children: React.ReactNode },
+  { hasError: boolean; error: Error | null }
+> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error("LibraryAIChat crashed:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="p-8 text-center bg-white rounded-3xl border border-stone-200 shadow-sm max-w-lg mx-auto my-12 space-y-4">
+          <div className="w-12 h-12 rounded-full bg-amber-100 text-[#E06953] flex items-center justify-center mx-auto text-xl font-bold">
+            ⚠️
+          </div>
+          <h3 className="font-serif font-bold text-lg text-[#1D1D1F]">AI Assistant Display Issue</h3>
+          <p className="text-xs text-stone-500">
+            {this.state.error?.message || "An unexpected error occurred while rendering recommendations."}
+          </p>
+          <button
+            onClick={() => this.setState({ hasError: false, error: null })}
+            className="px-4 py-2 bg-[#1D1D1F] hover:bg-[#333336] text-white rounded-xl text-xs font-medium cursor-pointer transition-colors"
+          >
+            Reset Chat Assistant
+          </button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+export const LibraryAIChat: React.FC<LibraryAIChatProps> = (props) => (
+  <ChatErrorBoundary>
+    <LibraryAIChatInner {...props} />
+  </ChatErrorBoundary>
+);
+
+const LibraryAIChatInner: React.FC<LibraryAIChatProps> = ({ onSelectBook, initialPrompt }) => {
   const [engineMode, setEngineMode] = useState<'slm' | 'standard'>('slm');
   const [tokenBudget, setTokenBudget] = useState<number>(512);
   const [inspectingTelemetry, setInspectingTelemetry] = useState<SlmTelemetry | null>(null);
@@ -21,7 +69,7 @@ export const LibraryAIChat: React.FC<LibraryAIChatProps> = ({ onSelectBook, init
     {
       id: 'msg-welcome',
       sender: 'assistant',
-      text: `Hello! I'm **Library AI**, optimized with a **Small Language Model (SLM) Context Engine** grounded on the Kaggle Google Books dataset and our live stack inventory.
+      text: `Hello! I'm **Library AI**, optimized with a **Local Vector RAG & SLM Context Engine** grounded on the Kaggle Google Books dataset and our live stack inventory.
 
 In **SLM Mode**, your queries are processed with:
 • **Dense Knowledge Compression** (~75-85% token reduction vs raw JSON)
@@ -51,7 +99,7 @@ Ask me about crime thrillers, software architecture, bestsellers, or physical co
     }
   }, [initialPrompt]);
 
-  const handleSend = (textToSend?: string) => {
+  const handleSend = async (textToSend?: string) => {
     const query = (textToSend || input).trim();
     if (!query) return;
 
@@ -65,6 +113,60 @@ Ask me about crime thrillers, software architecture, bestsellers, or physical co
     setMessages(prev => [...prev, userMsg]);
     setInput('');
     setIsTyping(true);
+
+    try {
+      const apiRes = await fetch('http://127.0.0.1:8000/api/ai/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: query }),
+      });
+      if (apiRes.ok) {
+        const data = await apiRes.json();
+        const suggested: Book[] = (data.recommended_books || []).map((b: any) => {
+          const authorStr = b.author || (Array.isArray(b.authors) ? b.authors.join(', ') : 'Author');
+          const authorsArr = Array.isArray(b.authors) && b.authors.length > 0
+            ? b.authors
+            : [authorStr];
+
+          return {
+            book_id: String(b.book_id),
+            isbn: b.isbn || '978-0000000000',
+            title: b.title || 'Untitled Book',
+            authors: authorsArr,
+            author: authorStr,
+            category_name: b.category || b.category_name || 'General',
+            category_id: b.category_id || b.category || 'cat-general',
+            description: b.description || '',
+            publisher: b.publisher || 'Library Collection',
+            publication_year: b.publication_year || 2024,
+            language: 'English',
+            format: 'Hardcover',
+            pageCount: b.pages || 300,
+            rating: b.rating || 4.5,
+            ratingCount: 50,
+            image_url: b.image_url || 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80',
+            totalCopies: b.total_copies || b.available_copies || 2,
+            availableCopies: b.available_copies ?? 1,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+          } as Book;
+        });
+
+        const botMsg: ChatMessage = {
+          id: `bot-${Date.now()}`,
+          sender: 'assistant',
+          text: data.reply,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          suggestedBooks: suggested,
+          engineMode: 'slm',
+        };
+        setMessages(prev => [...prev, botMsg]);
+        setIsTyping(false);
+        return;
+      }
+    } catch (err) {
+      console.warn('Backend RAG unavailable, falling back to local SLM engine:', err);
+    }
 
     setTimeout(() => {
       if (engineMode === 'slm') {
@@ -254,18 +356,24 @@ Ask me about crime thrillers, software architecture, bestsellers, or physical co
                         className="p-3 rounded-2xl bg-white border border-[#EAE7DF] hover:border-[#D6D2C4] shadow-xs cursor-pointer flex items-center gap-3 group transition-all"
                       >
                         <div className="w-12 h-16 rounded overflow-hidden book-card-shadow shrink-0 bg-[#232323]">
-                          <img src={b.image_url} alt={b.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                          <img 
+                            src={b.image_url || 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80'} 
+                            alt={b.title || 'Book cover'} 
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform" 
+                          />
                         </div>
                         <div className="flex-1 min-w-0 space-y-0.5">
                           <h4 className="text-xs font-serif font-bold text-[#1D1D1F] truncate group-hover:text-[#E06953]">
-                            {b.title}
+                            {b.title || 'Untitled Book'}
                           </h4>
                           <p className="text-[10px] text-[#8A857A] truncate">
-                            {b.authors[0]}
+                            {Array.isArray(b.authors) && b.authors.length > 0 
+                              ? b.authors[0] 
+                              : ((b as any).author || 'Library Author')}
                           </p>
                           <div className="pt-1 flex items-center justify-between text-[10px]">
-                            <span className={`font-semibold ${b.availableCopies > 0 ? 'text-emerald-700' : 'text-amber-700'}`}>
-                              {b.availableCopies > 0 ? `${b.availableCopies} available` : 'On loan'}
+                            <span className={`font-semibold ${(b.availableCopies ?? 0) > 0 ? 'text-emerald-700' : 'text-amber-700'}`}>
+                              {(b.availableCopies ?? 0) > 0 ? `${b.availableCopies} available` : 'On loan'}
                             </span>
                             <span className="text-[9px] font-mono text-stone-400">
                               ~{b.slm_tokens || 45} tok

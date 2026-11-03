@@ -1,0 +1,2548 @@
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+
+// src/mock/mockData.ts
+var mockData_exports = {};
+__export(mockData_exports, {
+  DEMO_USERS: () => DEMO_USERS,
+  INITIAL_AUDIT_LOGS: () => INITIAL_AUDIT_LOGS,
+  INITIAL_AUTHORS: () => INITIAL_AUTHORS,
+  INITIAL_BOOKS: () => INITIAL_BOOKS,
+  INITIAL_CATEGORIES: () => INITIAL_CATEGORIES,
+  INITIAL_COPIES: () => INITIAL_COPIES,
+  INITIAL_DAMAGE_REPORTS: () => INITIAL_DAMAGE_REPORTS,
+  INITIAL_FINES: () => INITIAL_FINES,
+  INITIAL_NOTIFICATIONS: () => INITIAL_NOTIFICATIONS,
+  INITIAL_RESERVATIONS: () => INITIAL_RESERVATIONS,
+  INITIAL_REVIEWS: () => INITIAL_REVIEWS,
+  INITIAL_TRANSACTIONS: () => INITIAL_TRANSACTIONS,
+  INITIAL_USERS: () => INITIAL_USERS
+});
+module.exports = __toCommonJS(mockData_exports);
+var INITIAL_CATEGORIES = [
+  {
+    "category_id": "cat-bestseller",
+    "name": "Fiction & Bestsellers",
+    "description": "Award-winning contemporary fiction, major blockbusters, and bestselling narratives",
+    "bookCount": 4
+  },
+  {
+    "category_id": "cat-thriller",
+    "name": "Mystery & Crime Thrillers",
+    "description": "Gripping investigative suspense, police procedurals, and psychological whodunits",
+    "bookCount": 5
+  },
+  {
+    "category_id": "cat-cs",
+    "name": "Computer Science",
+    "description": "Algorithms, distributed systems, clean architecture, and craftsmanship principles",
+    "bookCount": 4
+  },
+  {
+    "category_id": "cat-ai",
+    "name": "Artificial Intelligence",
+    "description": "Machine learning, deep neural representations, LLMs, and intelligent agents",
+    "bookCount": 2
+  },
+  {
+    "category_id": "cat-fantasy",
+    "name": "Fantasy & Sci-Fi",
+    "description": "Epic worldbuilding, magical realism, space exploration, and speculative worlds",
+    "bookCount": 5
+  },
+  {
+    "category_id": "cat-literature",
+    "name": "Literature & Fiction",
+    "description": "Classic and modern literary masterpieces, evocative prose, and character studies",
+    "bookCount": 3
+  },
+  {
+    "category_id": "cat-litcrit",
+    "name": "Literary Studies & Criticism",
+    "description": "Book history, computational text analytics, literary theory, and publishing culture",
+    "bookCount": 3
+  },
+  {
+    "category_id": "cat-biography",
+    "name": "Biographies & Memoirs",
+    "description": "Intimate memoirs, personal chronicles, and extraordinary life journeys",
+    "bookCount": 1
+  },
+  {
+    "category_id": "cat-science",
+    "name": "Physics & Science",
+    "description": "Cosmology, planetary science, quantum concepts, and scientific exploration",
+    "bookCount": 1
+  },
+  {
+    "category_id": "cat-design",
+    "name": "Design & UX",
+    "description": "Human-centered interaction, visual craft, affordances, and cognitive psychology",
+    "bookCount": 1
+  },
+  {
+    "category_id": "cat-history",
+    "name": "History & Philosophy",
+    "description": "Dialectical philosophy, Gaelic print preservation, and historical chronicles",
+    "bookCount": 2
+  },
+  {
+    "category_id": "cat-social",
+    "name": "Social Science & Society",
+    "description": "Cultural sociology, gender studies, and 20th-century critical commentaries",
+    "bookCount": 2
+  },
+  {
+    "category_id": "cat-music",
+    "name": "Music, Arts & Culture",
+    "description": "Archival audio history, master studio sessions, and popular song recordings",
+    "bookCount": 1
+  }
+];
+var INITIAL_AUTHORS = [
+  {
+    "author_id": "auth-jkr",
+    "name": "J.K. Rowling",
+    "biography": "British author best known for creating the globally beloved Harry Potter fantasy series.",
+    "photo_url": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-grrm",
+    "name": "George R.R. Martin",
+    "biography": "American novelist and screenwriter of A Song of Ice and Fire epic fantasy cycle.",
+    "photo_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-rcm",
+    "name": "Robert C. Martin",
+    "biography": 'Software engineer known as "Uncle Bob", champion of agile craftsmanship and clean design.',
+    "photo_url": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-sr",
+    "name": "Stuart Russell",
+    "biography": "Professor of Computer Science at UC Berkeley, pioneer in modern probabilistic and intelligent AI.",
+    "photo_url": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-mk",
+    "name": "Martin Kleppmann",
+    "biography": "Researcher in distributed systems and author of Designing Data-Intensive Applications.",
+    "photo_url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-cs",
+    "name": "Carl Sagan",
+    "biography": "Astronomer, planetary scientist, and legendary author and popularizer of cosmic science.",
+    "photo_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-dn",
+    "name": "Don Norman",
+    "biography": "Cognitive scientist and design luminary, author of The Design of Everyday Things.",
+    "photo_url": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-cna",
+    "name": "Chimamanda Ngozi Adichie",
+    "biography": "Celebrated Nigerian author of Americanah, Half of a Yellow Sun, and Notes on Grief, recipient of the MacArthur Fellowship.",
+    "photo_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-tm",
+    "name": "Toni Morrison",
+    "biography": "Nobel Prize and Pulitzer Prize laureate in Literature, acclaimed for Beloved and Song of Solomon.",
+    "photo_url": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-hm",
+    "name": "Haruki Murakami",
+    "biography": "Japanese novelist acclaimed for surrealist explorations of memory and modern alienation.",
+    "photo_url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-ma",
+    "name": "Margaret Atwood",
+    "biography": "Canadian poet and novelist, two-time Booker Prize winner, author of The Handmaid's Tale and MaddAddam.",
+    "photo_url": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-lr",
+    "name": "Lisa Regan",
+    "biography": "USA Today and Wall Street Journal bestselling crime thriller author of the Detective Josie Quinn series.",
+    "photo_url": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-jp",
+    "name": "James Patterson",
+    "biography": "World's bestselling author and creator of iconic detective protagonist Alex Cross, selling over 425 million copies worldwide.",
+    "photo_url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-mmc",
+    "name": "M.M. Chouinard",
+    "biography": "Psychological thriller author known for the Detective Jo Fournier series and gripping suspense.",
+    "photo_url": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-rg",
+    "name": "Rebecca Griffiths",
+    "biography": "Welsh author of dark psychological mysteries and domestic gothic suspense.",
+    "photo_url": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-rmp",
+    "name": "Robert McParland",
+    "biography": "Professor of English and cultural historian specializing in American print culture and bestseller trends.",
+    "photo_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-sm",
+    "name": "Susan Mallery",
+    "biography": "New York Times bestselling author of contemporary women's fiction with over 40 million books sold.",
+    "photo_url": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-aj",
+    "name": "Jodie Archer & Matthew L. Jockers",
+    "biography": "Pioneers in algorithmic literary analysis and digital humanities, founders of the Bestseller Code project.",
+    "photo_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-hegel",
+    "name": "Georg Wilhelm Friedrich Hegel",
+    "biography": "Major figure in German Idealism, whose dialectical philosophy transformed modern thought.",
+    "photo_url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+  },
+  {
+    "author_id": "auth-ss",
+    "name": "Steve Sullivan",
+    "biography": "Music historian and archivist, author of the definitive Encyclopedia of Great Popular Song Recordings.",
+    "photo_url": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80"
+  }
+];
+var INITIAL_BOOKS = [
+  {
+    "book_id": "book-hp-6",
+    "isbn": "978-0-43978-596-9",
+    "isbn_13": "9780439785969",
+    "isbn_10": "0439785960",
+    "title": "Harry Potter: Half Blood Prince",
+    "subtitle": "Book 6 in the Harry Potter Series",
+    "description": "The story takes place during Harry\u2019s sixth year at Hogwarts School of Witchcraft and Wizardry, where he discovers more about Lord Voldemort\u2019s past and the prophecy that foretells his defeat. With action-packed sequences, shocking twists, and moments of heart-wrenching tragedy, Half-Blood Prince is a must-read for any fan of the Harry Potter series.",
+    "publisher": "Bloomsbury Publishing / Scholastic",
+    "publication_year": 2005,
+    "category_id": "cat-fantasy",
+    "category_name": "Fantasy & Sci-Fi",
+    "authors": [
+      "J.K. Rowling"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1618666012174-83b441c0bc76?auto=format&fit=crop&w=600&q=80",
+    "editors": "J.K. Rowling (author), Christopher Reath, Alena Gestabor",
+    "language": "English",
+    "format": "Paperback, 345 pages",
+    "pageCount": 345,
+    "rating": 4.9,
+    "ratingCount": 1240,
+    "totalCopies": 4,
+    "availableCopies": 2,
+    "featured": true,
+    "popular": true,
+    "edition": "Special Illustrated Edition",
+    "created_at": "2024-01-10",
+    "updated_at": "2024-08-15",
+    "search_category": "fantasy fiction",
+    "slm_tokens": 48,
+    "slm_summary": "Harry explores Voldemort's memory archive with Dumbledore while teenage tensions brew at Hogwarts."
+  },
+  {
+    "book_id": "book-hp-2",
+    "isbn": "978-0-43906-487-3",
+    "isbn_13": "9780439064873",
+    "isbn_10": "0439064872",
+    "title": "The Chambers of Secrets",
+    "subtitle": "Harry Potter Year 2",
+    "description": "Harry as he returns to Hogwarts school of witchcraft and wizardry for his 2nd year, only to discover that mysterious petrifications are plaguing students. An ancient underground vault has been breached.",
+    "publisher": "Bloomsbury Publishing",
+    "publication_year": 1998,
+    "category_id": "cat-fantasy",
+    "category_name": "Fantasy & Sci-Fi",
+    "authors": [
+      "J.K. Rowling"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+    "editors": "Christopher Reath, Arthur Levine",
+    "language": "English",
+    "format": "Hardcover, 300 pages",
+    "pageCount": 300,
+    "rating": 4.8,
+    "ratingCount": 980,
+    "totalCopies": 3,
+    "availableCopies": 1,
+    "featured": true,
+    "popular": true,
+    "edition": "2nd Deluxe Edition",
+    "created_at": "2024-01-11",
+    "updated_at": "2024-08-20",
+    "search_category": "fantasy fiction",
+    "slm_tokens": 45,
+    "slm_summary": "Mysterious attacks petrify Hogwarts students as Harry uncovers the dark heir of Slytherin."
+  },
+  {
+    "book_id": "book-got-world",
+    "isbn": "978-0-55380-544-4",
+    "isbn_13": "9780553805444",
+    "isbn_10": "0553805444",
+    "title": "The World of Ice and Fire",
+    "subtitle": "The Untold History of Westeros and the Game of Thrones",
+    "description": "A lavishly illustrated volume presenting the comprehensive history of the Seven Kingdoms, featuring never-before-seen artwork and historical accounts written from the perspective of Maester Yandel.",
+    "publisher": "Bantam Books",
+    "publication_year": 2014,
+    "category_id": "cat-fantasy",
+    "category_name": "Fantasy & Sci-Fi",
+    "authors": [
+      "George R.R. Martin"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80",
+    "editors": "Elio M. Garc\xEDa Jr., Linda Antonsson",
+    "language": "English",
+    "format": "Full Color Hardcover, 336 pages",
+    "pageCount": 336,
+    "rating": 4.7,
+    "ratingCount": 650,
+    "totalCopies": 3,
+    "availableCopies": 2,
+    "popular": true,
+    "created_at": "2024-02-01",
+    "updated_at": "2024-07-10",
+    "search_category": "epic fantasy worldbuilding",
+    "slm_tokens": 52,
+    "slm_summary": "Illustrated chronicles of the Targaryen conquest, Valyria's doom, and Westerosi noble houses."
+  },
+  {
+    "book_id": "book-clean-code",
+    "isbn": "978-0-13235-088-4",
+    "isbn_13": "9780132350884",
+    "isbn_10": "0132350882",
+    "title": "Clean Code",
+    "subtitle": "A Handbook of Agile Software Craftsmanship",
+    "description": "Even bad code can function. But if code isn\u2019t clean, it can bring a development organization to its knees. Master meaningful naming, small functions, unit testing, and agile refactoring.",
+    "publisher": "Prentice Hall",
+    "publication_year": 2008,
+    "category_id": "cat-cs",
+    "category_name": "Computer Science",
+    "authors": [
+      "Robert C. Martin"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80",
+    "editors": "Uncle Bob Martin",
+    "language": "English",
+    "format": "Paperback, 464 pages",
+    "pageCount": 464,
+    "rating": 4.7,
+    "ratingCount": 3800,
+    "totalCopies": 5,
+    "availableCopies": 3,
+    "popular": true,
+    "featured": true,
+    "created_at": "2024-01-02",
+    "updated_at": "2024-08-10",
+    "search_category": "software engineering craftsmanship",
+    "slm_tokens": 49,
+    "slm_summary": "Industry guide on unit testing, refactoring heuristics, formatting, and expressive variable naming."
+  },
+  {
+    "book_id": "book-ai-modern",
+    "isbn": "978-0-13461-099-3",
+    "isbn_13": "9780134610993",
+    "isbn_10": "0134610997",
+    "title": "Artificial Intelligence: A Modern Approach",
+    "subtitle": "4th Global Edition",
+    "description": "The preeminent textbook in AI, covering intelligent agents, informed search, adversarial games, deep reinforcement learning, natural language processing, and probabilistic reasoning.",
+    "publisher": "Pearson",
+    "publication_year": 2020,
+    "category_id": "cat-ai",
+    "category_name": "Artificial Intelligence",
+    "authors": [
+      "Stuart Russell",
+      "Peter Norvig"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80",
+    "editors": "Michael Hirsch",
+    "language": "English",
+    "format": "Hardcover, 1166 pages",
+    "pageCount": 1166,
+    "rating": 4.9,
+    "ratingCount": 2200,
+    "totalCopies": 4,
+    "availableCopies": 1,
+    "popular": true,
+    "featured": true,
+    "created_at": "2024-01-08",
+    "updated_at": "2024-07-28",
+    "search_category": "artificial intelligence textbook",
+    "slm_tokens": 54,
+    "slm_summary": "Comprehensive graduate-level survey of autonomous agents, search, probabilistic models, and neural systems."
+  },
+  {
+    "book_id": "book-ddia",
+    "isbn": "978-1-44937-332-0",
+    "isbn_13": "9781449373320",
+    "isbn_10": "1449373321",
+    "title": "Designing Data-Intensive Applications",
+    "subtitle": "The Big Ideas Behind Reliable, Scalable, and Maintainable Systems",
+    "description": "Data is at the center of many challenges in system design. Learn storage engines, distributed consensus, partitioning, replication, stream processing, and transaction isolation levels.",
+    "publisher": "O\u2019Reilly Media",
+    "publication_year": 2017,
+    "category_id": "cat-cs",
+    "category_name": "Computer Science",
+    "authors": [
+      "Martin Kleppmann"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
+    "editors": "Marie Beaugureau",
+    "language": "English",
+    "format": "Paperback, 616 pages",
+    "pageCount": 616,
+    "rating": 4.9,
+    "ratingCount": 4500,
+    "totalCopies": 4,
+    "availableCopies": 2,
+    "popular": true,
+    "featured": true,
+    "created_at": "2024-01-14",
+    "updated_at": "2024-08-14",
+    "search_category": "distributed systems databases",
+    "slm_tokens": 52,
+    "slm_summary": "Foundational guide to replication, partitioning, consensus, stream processing, and transaction models."
+  },
+  {
+    "book_id": "book-deep-learning",
+    "isbn": "978-0-26203-561-3",
+    "isbn_13": "9780262035613",
+    "isbn_10": "0262035618",
+    "title": "Deep Learning",
+    "subtitle": "Adaptive Computation and Machine Learning series",
+    "description": "An authoritative introduction by pioneers in the field. Mathematical background, deep feedforward networks, regularization, optimization, convolutional networks, sequence modeling, and generative models.",
+    "publisher": "MIT Press",
+    "publication_year": 2016,
+    "category_id": "cat-ai",
+    "category_name": "Artificial Intelligence",
+    "authors": [
+      "Ian Goodfellow",
+      "Yoshua Bengio",
+      "Aaron Courville"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=600&q=80",
+    "editors": "Francis Bach",
+    "language": "English",
+    "format": "Hardcover, 800 pages",
+    "pageCount": 800,
+    "rating": 4.8,
+    "ratingCount": 1900,
+    "totalCopies": 3,
+    "availableCopies": 2,
+    "created_at": "2024-01-20",
+    "updated_at": "2024-06-30",
+    "search_category": "deep learning neural networks",
+    "slm_tokens": 53,
+    "slm_summary": "Mathematical rigor and foundational architectures of deep learning, CNNs, RNNs, and generative representations."
+  },
+  {
+    "book_id": "book-cosmos",
+    "isbn": "978-0-34553-943-4",
+    "isbn_13": "9780345539434",
+    "isbn_10": "0345539435",
+    "title": "Cosmos",
+    "subtitle": "The Story of Cosmic Evolution, Science and Civilization",
+    "description": "Carl Sagan retells the fifteen-billion-year story of cosmic evolution that has transformed matter into consciousness, exploring the science of stars, civilizations, and our planetary future.",
+    "publisher": "Ballantine Books",
+    "publication_year": 1980,
+    "category_id": "cat-science",
+    "category_name": "Physics & Science",
+    "authors": [
+      "Carl Sagan"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80",
+    "editors": "Ann Druyan",
+    "language": "English",
+    "format": "Paperback, 384 pages",
+    "pageCount": 384,
+    "rating": 4.9,
+    "ratingCount": 3100,
+    "totalCopies": 3,
+    "availableCopies": 2,
+    "created_at": "2024-01-18",
+    "updated_at": "2024-07-15",
+    "search_category": "astronomy cosmology history",
+    "slm_tokens": 47,
+    "slm_summary": "Poetic journey through 15 billion years of cosmic evolution, science history, and human curiosity."
+  },
+  {
+    "book_id": "book-design-everyday",
+    "isbn": "978-0-46505-065-9",
+    "isbn_13": "9780465050659",
+    "isbn_10": "0465050654",
+    "title": "The Design of Everyday Things",
+    "subtitle": "Revised and Expanded Edition",
+    "description": "Even the smartest among us can feel inept as we fail to figure out which light switch or oven burner to turn on, or whether to push, pull, or slide a door. The seminal work on human-centered design.",
+    "publisher": "Basic Books",
+    "publication_year": 2013,
+    "category_id": "cat-design",
+    "category_name": "Design & UX",
+    "authors": [
+      "Don Norman"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80",
+    "editors": "T.J. Kelleher",
+    "language": "English",
+    "format": "Paperback, 368 pages",
+    "pageCount": 368,
+    "rating": 4.7,
+    "ratingCount": 2800,
+    "totalCopies": 4,
+    "availableCopies": 2,
+    "popular": true,
+    "created_at": "2024-02-05",
+    "updated_at": "2024-08-01",
+    "search_category": "user experience design psychology",
+    "slm_tokens": 46,
+    "slm_summary": "Affordances, signifiers, conceptual models, and cognitive principles behind usable everyday objects."
+  },
+  {
+    "book_id": "book-clrs",
+    "isbn": "978-0-26204-630-5",
+    "isbn_13": "9780262046305",
+    "isbn_10": "026204630X",
+    "title": "Introduction to Algorithms",
+    "subtitle": "Fourth Edition (CLRS)",
+    "description": "A comprehensive textbook on computer algorithms, covering divide-and-conquer, dynamic programming, greedy algorithms, graph search, and amortized analysis with rigorous mathematical clarity.",
+    "publisher": "MIT Press",
+    "publication_year": 2022,
+    "category_id": "cat-cs",
+    "category_name": "Computer Science",
+    "authors": [
+      "Thomas H. Cormen",
+      "Charles E. Leiserson",
+      "Ronald L. Rivest",
+      "Clifford Stein"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=600&q=80",
+    "editors": "Ada Brunstein",
+    "language": "English",
+    "format": "Hardcover, 1312 pages",
+    "pageCount": 1312,
+    "rating": 4.8,
+    "ratingCount": 3200,
+    "totalCopies": 4,
+    "availableCopies": 1,
+    "created_at": "2024-01-25",
+    "updated_at": "2024-07-20",
+    "search_category": "algorithms data structures",
+    "slm_tokens": 51,
+    "slm_summary": "The universal algorithms bible spanning sorting, graph algorithms, dynamic programming, and complexity."
+  },
+  {
+    "book_id": "book-dune",
+    "isbn": "978-0-44101-359-3",
+    "isbn_13": "9780441013593",
+    "isbn_10": "0441013597",
+    "title": "Dune",
+    "subtitle": "The Great Sci-Fi Masterpiece",
+    "description": 'Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world where the only thing of value is the "spice" melange.',
+    "publisher": "Ace Books",
+    "publication_year": 1965,
+    "category_id": "cat-fantasy",
+    "category_name": "Fantasy & Sci-Fi",
+    "authors": [
+      "Frank Herbert"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80",
+    "editors": "Chilton Book Company",
+    "language": "English",
+    "format": "Deluxe Paperback, 688 pages",
+    "pageCount": 688,
+    "rating": 4.8,
+    "ratingCount": 4100,
+    "totalCopies": 4,
+    "availableCopies": 3,
+    "popular": true,
+    "created_at": "2024-02-10",
+    "updated_at": "2024-08-11",
+    "search_category": "epic sci-fi space ecology",
+    "slm_tokens": 49,
+    "slm_summary": "Epic desert planet saga exploring feudal politics, religion, spice melange, and Paul Atreides' messianic rise."
+  },
+  {
+    "book_id": "book-sicp",
+    "isbn": "978-0-26251-087-5",
+    "isbn_13": "9780262510875",
+    "isbn_10": "0262510871",
+    "title": "Structure and Interpretation of Computer Programs",
+    "subtitle": "MIT Electrical Engineering and Computer Science Series",
+    "description": 'The legendary "Wizard Book" introducing computing fundamentals, functional abstractions, state manipulation, interpreters, and compilation using Scheme.',
+    "publisher": "MIT Press",
+    "publication_year": 1996,
+    "category_id": "cat-cs",
+    "category_name": "Computer Science",
+    "authors": [
+      "Harold Abelson",
+      "Gerald Jay Sussman",
+      "Julie Sussman"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+    "editors": "Robert Prior",
+    "language": "English",
+    "format": "Paperback, 657 pages",
+    "pageCount": 657,
+    "rating": 4.9,
+    "ratingCount": 1600,
+    "totalCopies": 3,
+    "availableCopies": 2,
+    "created_at": "2024-01-30",
+    "updated_at": "2024-07-04",
+    "search_category": "functional programming scheme lisp",
+    "slm_tokens": 50,
+    "slm_summary": "MIT classic on computational abstractions, higher-order functions, meta-circular evaluators, and state machines."
+  },
+  {
+    "book_id": "book-americanah",
+    "google_book_id": "_wZ1Rf1QQ_EC",
+    "isbn": "978-0-30796-212-6",
+    "isbn_13": "9780307962126",
+    "isbn_10": "0307962121",
+    "title": "Americanah",
+    "subtitle": "A National Bestseller & Critical Triumph",
+    "description": "10th Anniversary Edition \u2022 National Bestseller. A powerful story of love, race, and identity centered around Ifemelu and Obinze, young Nigerians navigating university life, departure to the West, and eventual reconnection.",
+    "publisher": "Vintage",
+    "publication_year": 2013,
+    "category_id": "cat-bestseller",
+    "category_name": "Fiction & Bestsellers",
+    "authors": [
+      "Chimamanda Ngozi Adichie"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Paperback, 509 pages",
+    "pageCount": 509,
+    "rating": 4.8,
+    "ratingCount": 14200,
+    "totalCopies": 3,
+    "availableCopies": 2,
+    "popular": true,
+    "featured": true,
+    "created_at": "2024-03-01",
+    "updated_at": "2024-08-25",
+    "search_category": "author_Chimamanda Ngozi Adichie",
+    "slm_tokens": 44,
+    "slm_summary": "Acclaimed modern novel dissecting immigration, race, and identity across Nigeria, the UK, and the US."
+  },
+  {
+    "book_id": "book-notes-grief",
+    "google_book_id": "VQUbEAAAQBAJ",
+    "isbn": "978-0-59332-081-5",
+    "isbn_13": "9780593320815",
+    "isbn_10": "0593320816",
+    "title": "Notes on Grief",
+    "subtitle": "A Memoir of Love and Loss",
+    "description": "An exquisite, tender, and deeply moving personal meditation on loss, family bonds, and the architecture of grief following the sudden death of her beloved father in Nigeria.",
+    "publisher": "Knopf",
+    "publication_year": 2021,
+    "category_id": "cat-biography",
+    "category_name": "Biographies & Memoirs",
+    "authors": [
+      "Chimamanda Ngozi Adichie"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Hardcover, 81 pages",
+    "pageCount": 81,
+    "rating": 4.7,
+    "ratingCount": 3100,
+    "totalCopies": 2,
+    "availableCopies": 1,
+    "popular": false,
+    "created_at": "2024-03-05",
+    "updated_at": "2024-07-18",
+    "search_category": "author_Chimamanda Ngozi Adichie",
+    "slm_tokens": 41,
+    "slm_summary": "Lyrical, raw personal essay capturing the disorienting physical and emotional weight of sudden parental loss."
+  },
+  {
+    "book_id": "book-recitatif",
+    "google_book_id": "jMofEAAAQBAJ",
+    "isbn": "978-0-59331-504-0",
+    "isbn_13": "9780593315040",
+    "isbn_10": "0593315049",
+    "title": "Recitatif",
+    "subtitle": "A Story",
+    "description": "Nobel Laureate Toni Morrison\u2019s only published short story. An enigmatic and brilliant literary experiment following Twyla and Roberta, two girls who meet in a shelter whose racial identities are intentionally left unspecified.",
+    "publisher": "Knopf",
+    "publication_year": 2022,
+    "category_id": "cat-bestseller",
+    "category_name": "Fiction & Bestsellers",
+    "authors": [
+      "Toni Morrison"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Hardcover, 97 pages",
+    "pageCount": 97,
+    "rating": 4.6,
+    "ratingCount": 5200,
+    "totalCopies": 3,
+    "availableCopies": 2,
+    "popular": true,
+    "created_at": "2024-03-10",
+    "updated_at": "2024-08-01",
+    "search_category": "author_Toni Morrison",
+    "slm_tokens": 43,
+    "slm_summary": "Brilliant structural story exploring racial perception through two girls crossing paths across decades."
+  },
+  {
+    "book_id": "book-after-quake",
+    "google_book_id": "3DFvywOpVhUC",
+    "isbn": "978-0-30742-464-8",
+    "isbn_13": "9780307424648",
+    "isbn_10": "0307424642",
+    "title": "After the Quake",
+    "subtitle": "Stories from the 1995 Kobe Earthquake",
+    "description": "Set at the time of the catastrophic 1995 Kobe earthquake, these six evocative, magical realist tales explore human isolation, redemption, and mysterious subterranean forces.",
+    "publisher": "Vintage",
+    "publication_year": 2007,
+    "category_id": "cat-literature",
+    "category_name": "Literature & Fiction",
+    "authors": [
+      "Haruki Murakami"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Paperback, 162 pages",
+    "pageCount": 162,
+    "rating": 4.5,
+    "ratingCount": 4800,
+    "totalCopies": 3,
+    "availableCopies": 2,
+    "popular": true,
+    "created_at": "2024-02-18",
+    "updated_at": "2024-07-22",
+    "search_category": "author_Haruki Murakami",
+    "slm_tokens": 42,
+    "slm_summary": "Six psychological, surreal short stories linked by the psychological shockwave of the 1995 Kobe disaster."
+  },
+  {
+    "book_id": "book-south-border",
+    "google_book_id": "iz3c74S6qeoC",
+    "isbn": "978-0-30776-274-1",
+    "isbn_13": "9780307762741",
+    "isbn_10": "0307762742",
+    "title": "South of the Border, West of the Sun",
+    "subtitle": "A Novel",
+    "description": "A poignant exploration of memory and longing, telling the story of Hajime, a successful jazz club owner in Tokyo whose idyllic suburban life is unsettled by the reappearance of his childhood love.",
+    "publisher": "Vintage",
+    "publication_year": 2010,
+    "category_id": "cat-literature",
+    "category_name": "Literature & Fiction",
+    "authors": [
+      "Haruki Murakami"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1495640388908-05fa85288e61?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Paperback, 224 pages",
+    "pageCount": 224,
+    "rating": 4.6,
+    "ratingCount": 6100,
+    "totalCopies": 3,
+    "availableCopies": 1,
+    "popular": true,
+    "created_at": "2024-02-22",
+    "updated_at": "2024-08-12",
+    "search_category": "author_Haruki Murakami",
+    "slm_tokens": 45,
+    "slm_summary": "Melancholic Tokyo drama of love, music, youth memory, and existential crisis in a jazz bar setting."
+  },
+  {
+    "book_id": "book-hag-seed",
+    "google_book_id": "HERmCwAAQBAJ",
+    "isbn": "978-0-80414-130-7",
+    "isbn_13": "9780804141307",
+    "isbn_10": "0804141304",
+    "title": "Hag-Seed",
+    "subtitle": "William Shakespeare's The Tempest Retold",
+    "description": "Part of the Hogarth Shakespeare series, Atwood reimagines The Tempest inside a correctional facility, following exiled theatre director Felix as he stages a high-stakes prison performance.",
+    "publisher": "Hogarth",
+    "publication_year": 2016,
+    "category_id": "cat-literature",
+    "category_name": "Literature & Fiction",
+    "authors": [
+      "Margaret Atwood"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1476275466078-4007374efbbe?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Paperback, 286 pages",
+    "pageCount": 286,
+    "rating": 4.4,
+    "ratingCount": 3900,
+    "totalCopies": 2,
+    "availableCopies": 2,
+    "created_at": "2024-03-12",
+    "updated_at": "2024-07-29",
+    "search_category": "author_Margaret Atwood",
+    "slm_tokens": 43,
+    "slm_summary": "Modern theatrical revenge retelling of Shakespeare's The Tempest staged inside a maximum-security prison."
+  },
+  {
+    "book_id": "book-maddaddam",
+    "google_book_id": "9FlmLA3_ficC",
+    "isbn": "978-0-38553-783-4",
+    "isbn_13": "9780385537834",
+    "isbn_10": "0385537832",
+    "title": "MaddAddam",
+    "subtitle": "Book 3 of The MaddAddam Dystopian Trilogy",
+    "description": "The conclusion to Atwood's visionary speculative trilogy, bringing together the surviving humans and the gentle, bio-engineered Crakers in a post-apocalyptic wilderness.",
+    "publisher": "Vintage",
+    "publication_year": 2013,
+    "category_id": "cat-fantasy",
+    "category_name": "Fantasy & Sci-Fi",
+    "authors": [
+      "Margaret Atwood"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Paperback, 417 pages",
+    "pageCount": 417,
+    "rating": 4.7,
+    "ratingCount": 8700,
+    "totalCopies": 3,
+    "availableCopies": 2,
+    "popular": true,
+    "created_at": "2024-03-14",
+    "updated_at": "2024-08-04",
+    "search_category": "author_Margaret Atwood",
+    "slm_tokens": 46,
+    "slm_summary": "Climactic finale to Atwood's bio-engineered pandemic apocalypse pitting survivors alongside the naive Crakers."
+  },
+  {
+    "book_id": "book-hush-little-girl",
+    "google_book_id": "-qIPEAAAQBAJ",
+    "isbn": "978-1-80019-137-2",
+    "isbn_13": "9781800191372",
+    "isbn_10": "1800191375",
+    "title": "Hush Little Girl",
+    "subtitle": "Detective Josie Quinn Mystery Series Book 11",
+    "description": "A nail-biting suspense thriller. Detective Josie Quinn arrives at a snowbound crime scene where a young girl has been found abandoned in pajamas, unraveling a web of long-buried town secrets.",
+    "publisher": "Bookouture",
+    "publication_year": 2021,
+    "category_id": "cat-thriller",
+    "category_name": "Mystery & Crime Thrillers",
+    "authors": [
+      "Lisa Regan"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Paperback, 374 pages",
+    "pageCount": 374,
+    "rating": 4.9,
+    "ratingCount": 11200,
+    "totalCopies": 4,
+    "availableCopies": 3,
+    "popular": true,
+    "featured": true,
+    "created_at": "2024-03-15",
+    "updated_at": "2024-08-16",
+    "search_category": "mystery thriller crime",
+    "slm_tokens": 47,
+    "slm_summary": "Fast-paced Appalachian procedural with Detective Josie Quinn unraveling an abandoned child case in the snow."
+  },
+  {
+    "book_id": "book-find-her-alive",
+    "google_book_id": "frXLDwAAQBAJ",
+    "isbn": "978-1-83888-229-7",
+    "isbn_13": "9781838882297",
+    "isbn_10": "1838882294",
+    "title": "Find Her Alive",
+    "subtitle": "A Josie Quinn Crime Mystery",
+    "description": "Josie Quinn races against time when a colleague's sister vanishes into thin air, exposing a serial killer hunting vulnerable women along rural Appalachian highways.",
+    "publisher": "Bookouture",
+    "publication_year": 2020,
+    "category_id": "cat-thriller",
+    "category_name": "Mystery & Crime Thrillers",
+    "authors": [
+      "Lisa Regan"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1474932430478-367dbb6832c1?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Paperback, 424 pages",
+    "pageCount": 424,
+    "rating": 4.8,
+    "ratingCount": 9800,
+    "totalCopies": 3,
+    "availableCopies": 1,
+    "popular": true,
+    "created_at": "2024-03-18",
+    "updated_at": "2024-08-08",
+    "search_category": "mystery thriller crime",
+    "slm_tokens": 45,
+    "slm_summary": "High-stakes abduction mystery tracking missing women and serial forensics in rural Pennsylvania."
+  },
+  {
+    "book_id": "book-taken-grave",
+    "google_book_id": "n5imDwAAQBAJ",
+    "isbn": "978-1-78681-825-6",
+    "isbn_13": "9781786818256",
+    "isbn_10": "1786818256",
+    "title": "Taken to the Grave",
+    "subtitle": "Detective Jo Fournier Mystery Book 1",
+    "description": "A completely unputdownable mystery thriller set in quiet Oakhurst, Massachusetts, where the murder of a high school teacher unearths scandalous secrets across a tight-knit community.",
+    "publisher": "Bookouture",
+    "publication_year": 2019,
+    "category_id": "cat-thriller",
+    "category_name": "Mystery & Crime Thrillers",
+    "authors": [
+      "M.M. Chouinard"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Paperback, 343 pages",
+    "pageCount": 343,
+    "rating": 4.7,
+    "ratingCount": 4200,
+    "totalCopies": 3,
+    "availableCopies": 2,
+    "created_at": "2024-03-20",
+    "updated_at": "2024-07-25",
+    "search_category": "mystery thriller suspense",
+    "slm_tokens": 44,
+    "slm_summary": "Atmospheric New England whodunit investigating a beloved teacher's murder and covert small-town liaisons."
+  },
+  {
+    "book_id": "book-hidden-child",
+    "google_book_id": "j3tGEAAAQBAJ",
+    "isbn": "978-1-80019-893-7",
+    "isbn_13": "9781800198937",
+    "isbn_10": "1800198930",
+    "title": "The Hidden Child",
+    "subtitle": "A Psychological Suspense Thriller",
+    "description": "A spine-chilling psychological thriller in the dark Welsh borders, revolving around Connie and the mysterious isolation of a woodland estate hiding generations of deception.",
+    "publisher": "Bookouture",
+    "publication_year": 2022,
+    "category_id": "cat-thriller",
+    "category_name": "Mystery & Crime Thrillers",
+    "authors": [
+      "Rebecca Griffiths"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Paperback, 357 pages",
+    "pageCount": 357,
+    "rating": 4.6,
+    "ratingCount": 3100,
+    "totalCopies": 2,
+    "availableCopies": 1,
+    "created_at": "2024-03-22",
+    "updated_at": "2024-07-11",
+    "search_category": "mystery thriller suspense",
+    "slm_tokens": 43,
+    "slm_summary": "Creepy gothic suspense set in rural Welsh borderlands where childhood memories clash with sinister family secrets."
+  },
+  {
+    "book_id": "book-alex-cross",
+    "google_book_id": "U9v7vCg4vDAC",
+    "isbn": "978-0-31623-364-4",
+    "isbn_13": "9780316233644",
+    "isbn_10": "0316233641",
+    "title": "Alex Cross",
+    "subtitle": "Also published as CROSS (Book 12)",
+    "description": "Alex Cross faces the most cunning, psychotic adversary of his career\u2014a contract killer known as the Butcher, who may hold the truth about the murder of Cross's own wife.",
+    "publisher": "Little, Brown and Company",
+    "publication_year": 2012,
+    "category_id": "cat-thriller",
+    "category_name": "Mystery & Crime Thrillers",
+    "authors": [
+      "James Patterson"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Paperback, 270 pages",
+    "pageCount": 270,
+    "rating": 4.8,
+    "ratingCount": 18500,
+    "totalCopies": 4,
+    "availableCopies": 2,
+    "popular": true,
+    "featured": true,
+    "created_at": "2024-02-12",
+    "updated_at": "2024-08-14",
+    "search_category": "author_James Patterson",
+    "slm_tokens": 46,
+    "slm_summary": "Detective Alex Cross confronts a brutal international sniper tied directly to his deceased wife's unsolved murder."
+  },
+  {
+    "book_id": "book-bestseller-code",
+    "google_book_id": "F4JzCwAAQBAJ",
+    "isbn": "978-1-25008-828-4",
+    "isbn_13": "9781250088284",
+    "isbn_10": "1250088283",
+    "title": "The Bestseller Code",
+    "subtitle": "Anatomy of the Blockbuster Novel",
+    "description": "Using natural language processing and machine learning algorithms on thousands of manuscripts, Archer and Jockers identify the mathematical DNA of New York Times bestselling fiction.",
+    "publisher": "St. Martin's Press",
+    "publication_year": 2016,
+    "category_id": "cat-litcrit",
+    "category_name": "Literary Studies & Criticism",
+    "authors": [
+      "Jodie Archer",
+      "Matthew L. Jockers"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Paperback, 253 pages",
+    "pageCount": 253,
+    "rating": 4.5,
+    "ratingCount": 2800,
+    "totalCopies": 3,
+    "availableCopies": 2,
+    "popular": true,
+    "created_at": "2024-03-24",
+    "updated_at": "2024-07-30",
+    "search_category": "language_English literature nlp",
+    "slm_tokens": 46,
+    "slm_summary": "Computational linguistics study training NLP text classifiers to predict blockbuster bestseller plot trajectories."
+  },
+  {
+    "book_id": "book-bestseller-century",
+    "google_book_id": "yIVuDwAAQBAJ",
+    "isbn": "978-1-53811-000-3",
+    "isbn_13": "9781538110003",
+    "isbn_10": "1538110008",
+    "title": "Bestseller",
+    "subtitle": "A Century of America's Favorite Books",
+    "description": "A comprehensive cultural analysis charting the evolution of popular reading tastes, mass-market publishing trends, and cultural movements in America from 1900 to present.",
+    "publisher": "Bloomsbury Publishing PLC",
+    "publication_year": 2018,
+    "category_id": "cat-litcrit",
+    "category_name": "Literary Studies & Criticism",
+    "authors": [
+      "Robert McParland"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Hardcover, 335 pages",
+    "pageCount": 335,
+    "rating": 4.4,
+    "ratingCount": 1400,
+    "totalCopies": 2,
+    "availableCopies": 2,
+    "created_at": "2024-03-25",
+    "updated_at": "2024-06-28",
+    "search_category": "fiction bestsellers history",
+    "slm_tokens": 44,
+    "slm_summary": "Historical and social inquiry into changing literary appetites and paperback publishing phenomena over 100 years."
+  },
+  {
+    "book_id": "book-hype-culture",
+    "google_book_id": "m4yBEAAAQBAJ",
+    "isbn": "978-9-18767-532-4",
+    "isbn_13": "9789187675324",
+    "isbn_10": "9187675323",
+    "title": "Hype",
+    "subtitle": "Bestsellers and Literary Culture",
+    "description": "Examines how promotional campaigns, literary prizes, media frenzy, and digital marketing mechanisms construct literary celebrity and shape reading habits across international markets.",
+    "publisher": "Nordic Academic Press",
+    "publication_year": 2015,
+    "category_id": "cat-litcrit",
+    "category_name": "Literary Studies & Criticism",
+    "authors": [
+      "Jon Helgason",
+      "Sara K\xE4rrholm",
+      "Ann Steiner"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Hardcover, 254 pages",
+    "pageCount": 254,
+    "rating": 4.3,
+    "ratingCount": 950,
+    "totalCopies": 2,
+    "availableCopies": 1,
+    "created_at": "2024-03-26",
+    "updated_at": "2024-07-02",
+    "search_category": "fiction bestsellers marketing",
+    "slm_tokens": 44,
+    "slm_summary": "Academic investigation into marketing apparatuses, prestige awards, and virality driving contemporary reading trends."
+  },
+  {
+    "book_id": "book-myth-superwoman",
+    "google_book_id": "RyGzDwAAQBAJ",
+    "isbn": "978-1-00065-238-3",
+    "isbn_13": "9781000652383",
+    "isbn_10": "1000652386",
+    "title": "The Myth of Superwoman",
+    "subtitle": "Women's Bestsellers in France and the United States",
+    "description": "A comparative sociological investigation of how popular women's commercial fiction reflects, reinforces, and challenges patriarchal structures and second-wave feminist ideals.",
+    "publisher": "Routledge",
+    "publication_year": 2019,
+    "category_id": "cat-social",
+    "category_name": "Social Science & Society",
+    "authors": [
+      "Resa L. Dudovitz"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1495640388908-05fa85288e61?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Paperback, 246 pages",
+    "pageCount": 246,
+    "rating": 4.5,
+    "ratingCount": 1100,
+    "totalCopies": 2,
+    "availableCopies": 2,
+    "created_at": "2024-03-27",
+    "updated_at": "2024-07-15",
+    "search_category": "fiction bestsellers gender studies",
+    "slm_tokens": 45,
+    "slm_summary": "Comparative sociological probe into feminist tropes, domestic independence, and mass-market heroines."
+  },
+  {
+    "book_id": "book-sisters-by-choice",
+    "google_book_id": "cqyRDwAAQBAJ",
+    "isbn": "978-1-48805-538-6",
+    "isbn_13": "9781488055386",
+    "isbn_10": "1488055386",
+    "title": "Sisters by Choice",
+    "subtitle": "A Blackberry Island Novel",
+    "description": "From the New York Times bestselling author, a heartfelt story of cousinhood, female resilience, romance, and navigating new beginnings in the picturesque Pacific Northwest.",
+    "publisher": "MIRA Books",
+    "publication_year": 2020,
+    "category_id": "cat-bestseller",
+    "category_name": "Fiction & Bestsellers",
+    "authors": [
+      "Susan Mallery"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1476275466078-4007374efbbe?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Paperback, 461 pages",
+    "pageCount": 461,
+    "rating": 4.7,
+    "ratingCount": 5600,
+    "totalCopies": 3,
+    "availableCopies": 2,
+    "popular": true,
+    "created_at": "2024-03-28",
+    "updated_at": "2024-08-03",
+    "search_category": "fiction bestsellers romance",
+    "slm_tokens": 44,
+    "slm_summary": "Heartwarming women's contemporary novel tracing three cousins facing career pivots and romantic decisions."
+  },
+  {
+    "book_id": "book-history-philosophy",
+    "google_book_id": "mRByngEACAAJ",
+    "isbn": "978-1-31328-338-0",
+    "isbn_13": "9781313283380",
+    "isbn_10": "131328338X",
+    "title": "Lectures on the History of Philosophy",
+    "subtitle": "Classical German Idealism Collection",
+    "description": "Hegel's masterwork on the developmental trajectory of human philosophical thought, tracing the dialectical emergence of spirit from Greek metaphysics through modern enlightenment.",
+    "publisher": "Hardpress Publishing",
+    "publication_year": 2013,
+    "category_id": "cat-history",
+    "category_name": "History & Philosophy",
+    "authors": [
+      "Georg Wilhelm Friedrich Hegel"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Paperback, 518 pages",
+    "pageCount": 518,
+    "rating": 4.8,
+    "ratingCount": 2400,
+    "totalCopies": 3,
+    "availableCopies": 2,
+    "created_at": "2024-02-14",
+    "updated_at": "2024-06-20",
+    "search_category": "history philosophy hegel",
+    "slm_tokens": 46,
+    "slm_summary": "Hegelian dialectical history charting the rational self-realization of human consciousness across philosophical epochs."
+  },
+  {
+    "book_id": "book-irish-print",
+    "google_book_id": "-LhmEQAAQBAJ",
+    "isbn": "978-0-19288-982-9",
+    "isbn_13": "9780192889829",
+    "isbn_10": "0192889826",
+    "title": "The Oxford History of the Irish Book",
+    "subtitle": "Volume II: The Printed Book in Irish (1567-2010s)",
+    "description": "The authoritative Oxford scholarly survey of Gaelic printing, documenting four centuries of print culture, manuscript transitions, and linguistic preservation in Irish society.",
+    "publisher": "Oxford University Press",
+    "publication_year": 2025,
+    "category_id": "cat-history",
+    "category_name": "History & Philosophy",
+    "authors": [
+      "\xC9amonn \xD3 Ciardha",
+      "Frank Sewell",
+      "Alan Titley"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Hardcover, 785 pages",
+    "pageCount": 785,
+    "rating": 4.9,
+    "ratingCount": 680,
+    "totalCopies": 2,
+    "availableCopies": 1,
+    "created_at": "2024-03-30",
+    "updated_at": "2024-08-10",
+    "search_category": "history typography publishing",
+    "slm_tokens": 47,
+    "slm_summary": "Definitive bibliographic scholarship on Gaelic moveable type, religious printing, and diaspora publishing."
+  },
+  {
+    "book_id": "book-richard-wright",
+    "google_book_id": "zbTOEAAAQBAJ",
+    "isbn": "978-0-31306-441-8",
+    "isbn_13": "9780313064418",
+    "isbn_10": "0313064415",
+    "title": "A Richard Wright Bibliography",
+    "subtitle": "Fifty Years of Criticism and Commentary (1933-1982)",
+    "description": "An encyclopedic archival resource compiling half a century of international critical reception, translation histories, and literary analyses of African American novelist Richard Wright.",
+    "publisher": "Bloomsbury Publishing USA",
+    "publication_year": 1988,
+    "category_id": "cat-social",
+    "category_name": "Social Science & Society",
+    "authors": [
+      "Kenneth Kinnamon",
+      "Joseph Benson",
+      "Michel Fabre"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Hardcover, 1000 pages",
+    "pageCount": 1e3,
+    "rating": 4.6,
+    "ratingCount": 520,
+    "totalCopies": 2,
+    "availableCopies": 1,
+    "created_at": "2024-01-28",
+    "updated_at": "2024-06-15",
+    "search_category": "fiction bestsellers bibliography",
+    "slm_tokens": 47,
+    "slm_summary": "Archival critical bibliography detailing global academic analysis of Richard Wright's Native Son and Black Boy."
+  },
+  {
+    "book_id": "book-popular-songs",
+    "google_book_id": "QWBPAQAAQBAJ",
+    "isbn": "978-0-81088-296-6",
+    "isbn_13": "9780810882966",
+    "isbn_10": "0810882965",
+    "title": "Encyclopedia of Great Popular Song Recordings",
+    "subtitle": "Volumes 1 & 2: Comprehensive Sound History",
+    "description": "A landmark archival survey tracing the stories, master recordings, studio sessions, and sonic innovations behind 1,000 of the most culturally significant recordings in modern audio history.",
+    "publisher": "Bloomsbury Publishing PLC",
+    "publication_year": 2013,
+    "category_id": "cat-music",
+    "category_name": "Music, Arts & Culture",
+    "authors": [
+      "Steve Sullivan"
+    ],
+    "image_url": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80",
+    "language": "English",
+    "format": "Hardcover, 1027 pages",
+    "pageCount": 1027,
+    "rating": 4.7,
+    "ratingCount": 1900,
+    "totalCopies": 2,
+    "availableCopies": 2,
+    "created_at": "2024-02-08",
+    "updated_at": "2024-07-19",
+    "search_category": "music recording history",
+    "slm_tokens": 48,
+    "slm_summary": "Authoritative two-volume chronicle examining studio master tapes and cultural impacts of 1,000 landmark tracks."
+  }
+];
+var INITIAL_COPIES = [
+  {
+    "copy_id": "copy-hp6-01",
+    "book_id": "book-hp-6",
+    "barcode": "LIB-HP6-101",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 2, Shelf F-12",
+    "acquisition_date": "2023-01-15"
+  },
+  {
+    "copy_id": "copy-hp6-02",
+    "book_id": "book-hp-6",
+    "barcode": "LIB-HP6-102",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 2, Shelf F-12",
+    "acquisition_date": "2023-01-15"
+  },
+  {
+    "copy_id": "copy-hp6-03",
+    "book_id": "book-hp-6",
+    "barcode": "LIB-HP6-103",
+    "status": "BORROWED",
+    "condition": "GOOD",
+    "location": "On Loan (Harvey)",
+    "acquisition_date": "2023-03-10"
+  },
+  {
+    "copy_id": "copy-hp6-04",
+    "book_id": "book-hp-6",
+    "barcode": "LIB-HP6-104",
+    "status": "RESERVED",
+    "condition": "FAIR",
+    "location": "Hold Shelf #04",
+    "acquisition_date": "2023-06-20"
+  },
+  {
+    "copy_id": "copy-hp2-01",
+    "book_id": "book-hp-2",
+    "barcode": "LIB-HP2-201",
+    "status": "BORROWED",
+    "condition": "GOOD",
+    "location": "On Loan (Alexander)",
+    "acquisition_date": "2023-02-12"
+  },
+  {
+    "copy_id": "copy-hp2-02",
+    "book_id": "book-hp-2",
+    "barcode": "LIB-HP2-202",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 2, Shelf F-10",
+    "acquisition_date": "2023-02-12"
+  },
+  {
+    "copy_id": "copy-hp2-03",
+    "book_id": "book-hp-2",
+    "barcode": "LIB-HP2-203",
+    "status": "MAINTENANCE",
+    "condition": "FAIR",
+    "location": "Bindery Workshop",
+    "acquisition_date": "2023-05-18"
+  },
+  {
+    "copy_id": "copy-cc-01",
+    "book_id": "book-clean-code",
+    "barcode": "LIB-CS-301",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 3, Shelf C-01",
+    "acquisition_date": "2022-08-10"
+  },
+  {
+    "copy_id": "copy-cc-02",
+    "book_id": "book-clean-code",
+    "barcode": "LIB-CS-302",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 3, Shelf C-01",
+    "acquisition_date": "2022-08-10"
+  },
+  {
+    "copy_id": "copy-cc-03",
+    "book_id": "book-clean-code",
+    "barcode": "LIB-CS-303",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 3, Shelf C-01",
+    "acquisition_date": "2023-04-11"
+  },
+  {
+    "copy_id": "copy-cc-04",
+    "book_id": "book-clean-code",
+    "barcode": "LIB-CS-304",
+    "status": "BORROWED",
+    "condition": "FAIR",
+    "location": "On Loan",
+    "acquisition_date": "2023-09-01"
+  },
+  {
+    "copy_id": "copy-cc-05",
+    "book_id": "book-clean-code",
+    "barcode": "LIB-CS-305",
+    "status": "DAMAGED",
+    "condition": "POOR",
+    "location": "Inspection Rack #2",
+    "acquisition_date": "2022-11-20"
+  },
+  {
+    "copy_id": "copy-ddia-01",
+    "book_id": "book-ddia",
+    "barcode": "LIB-CS-401",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 3, Shelf C-05",
+    "acquisition_date": "2023-02-01"
+  },
+  {
+    "copy_id": "copy-ddia-02",
+    "book_id": "book-ddia",
+    "barcode": "LIB-CS-402",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 3, Shelf C-05",
+    "acquisition_date": "2023-02-01"
+  },
+  {
+    "copy_id": "copy-ddia-03",
+    "book_id": "book-ddia",
+    "barcode": "LIB-CS-403",
+    "status": "BORROWED",
+    "condition": "MINT",
+    "location": "On Loan",
+    "acquisition_date": "2023-06-15"
+  },
+  {
+    "copy_id": "copy-ddia-04",
+    "book_id": "book-ddia",
+    "barcode": "LIB-CS-404",
+    "status": "RESERVED",
+    "condition": "GOOD",
+    "location": "Hold Shelf #08",
+    "acquisition_date": "2023-07-22"
+  },
+  {
+    "copy_id": "copy-ai-01",
+    "book_id": "book-ai-modern",
+    "barcode": "LIB-AI-501",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 3, Shelf A-02",
+    "acquisition_date": "2023-01-20"
+  },
+  {
+    "copy_id": "copy-ai-02",
+    "book_id": "book-ai-modern",
+    "barcode": "LIB-AI-502",
+    "status": "BORROWED",
+    "condition": "GOOD",
+    "location": "On Loan (Harvey)",
+    "acquisition_date": "2023-01-20"
+  },
+  {
+    "copy_id": "copy-ai-03",
+    "book_id": "book-ai-modern",
+    "barcode": "LIB-AI-503",
+    "status": "BORROWED",
+    "condition": "GOOD",
+    "location": "On Loan (Overdue)",
+    "acquisition_date": "2023-04-15"
+  },
+  {
+    "copy_id": "copy-ai-04",
+    "book_id": "book-ai-modern",
+    "barcode": "LIB-AI-504",
+    "status": "RESERVED",
+    "condition": "GOOD",
+    "location": "Hold Shelf #02",
+    "acquisition_date": "2023-09-02"
+  },
+  {
+    "copy_id": "copy-got-w1",
+    "book_id": "book-got-world",
+    "barcode": "LIB-FT-601",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 2, Shelf F-08",
+    "acquisition_date": "2023-03-01"
+  },
+  {
+    "copy_id": "copy-got-w2",
+    "book_id": "book-got-world",
+    "barcode": "LIB-FT-602",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 2, Shelf F-08",
+    "acquisition_date": "2023-03-01"
+  },
+  {
+    "copy_id": "copy-got-w3",
+    "book_id": "book-got-world",
+    "barcode": "LIB-FT-603",
+    "status": "BORROWED",
+    "condition": "GOOD",
+    "location": "On Loan",
+    "acquisition_date": "2023-08-11"
+  },
+  {
+    "copy_id": "copy-deep-01",
+    "book_id": "book-deep-learning",
+    "barcode": "LIB-AI-510",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 3, Shelf A-05",
+    "acquisition_date": "2023-02-15"
+  },
+  {
+    "copy_id": "copy-deep-02",
+    "book_id": "book-deep-learning",
+    "barcode": "LIB-AI-511",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 3, Shelf A-05",
+    "acquisition_date": "2023-02-15"
+  },
+  {
+    "copy_id": "copy-deep-03",
+    "book_id": "book-deep-learning",
+    "barcode": "LIB-AI-512",
+    "status": "BORROWED",
+    "condition": "GOOD",
+    "location": "On Loan",
+    "acquisition_date": "2023-05-10"
+  },
+  {
+    "copy_id": "copy-cosmos-01",
+    "book_id": "book-cosmos",
+    "barcode": "LIB-SC-701",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 2, Shelf S-01",
+    "acquisition_date": "2023-01-10"
+  },
+  {
+    "copy_id": "copy-cosmos-02",
+    "book_id": "book-cosmos",
+    "barcode": "LIB-SC-702",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 2, Shelf S-01",
+    "acquisition_date": "2023-01-10"
+  },
+  {
+    "copy_id": "copy-cosmos-03",
+    "book_id": "book-cosmos",
+    "barcode": "LIB-SC-703",
+    "status": "BORROWED",
+    "condition": "FAIR",
+    "location": "On Loan",
+    "acquisition_date": "2023-06-25"
+  },
+  {
+    "copy_id": "copy-norman-01",
+    "book_id": "book-design-everyday",
+    "barcode": "LIB-DS-801",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 1, Shelf D-03",
+    "acquisition_date": "2023-03-12"
+  },
+  {
+    "copy_id": "copy-norman-02",
+    "book_id": "book-design-everyday",
+    "barcode": "LIB-DS-802",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 1, Shelf D-03",
+    "acquisition_date": "2023-03-12"
+  },
+  {
+    "copy_id": "copy-norman-03",
+    "book_id": "book-design-everyday",
+    "barcode": "LIB-DS-803",
+    "status": "BORROWED",
+    "condition": "GOOD",
+    "location": "On Loan",
+    "acquisition_date": "2023-07-15"
+  },
+  {
+    "copy_id": "copy-norman-04",
+    "book_id": "book-design-everyday",
+    "barcode": "LIB-DS-804",
+    "status": "RESERVED",
+    "condition": "GOOD",
+    "location": "Hold Shelf #06",
+    "acquisition_date": "2023-09-01"
+  },
+  {
+    "copy_id": "copy-clrs-01",
+    "book_id": "book-clrs",
+    "barcode": "LIB-CS-901",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 3, Shelf C-08",
+    "acquisition_date": "2023-01-05"
+  },
+  {
+    "copy_id": "copy-clrs-02",
+    "book_id": "book-clrs",
+    "barcode": "LIB-CS-902",
+    "status": "BORROWED",
+    "condition": "GOOD",
+    "location": "On Loan",
+    "acquisition_date": "2023-04-10"
+  },
+  {
+    "copy_id": "copy-clrs-03",
+    "book_id": "book-clrs",
+    "barcode": "LIB-CS-903",
+    "status": "BORROWED",
+    "condition": "GOOD",
+    "location": "On Loan",
+    "acquisition_date": "2023-05-18"
+  },
+  {
+    "copy_id": "copy-clrs-04",
+    "book_id": "book-clrs",
+    "barcode": "LIB-CS-904",
+    "status": "RESERVED",
+    "condition": "MINT",
+    "location": "Hold Shelf #09",
+    "acquisition_date": "2023-08-20"
+  },
+  {
+    "copy_id": "copy-dune-01",
+    "book_id": "book-dune",
+    "barcode": "LIB-FT-911",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 2, Shelf F-15",
+    "acquisition_date": "2023-02-20"
+  },
+  {
+    "copy_id": "copy-dune-02",
+    "book_id": "book-dune",
+    "barcode": "LIB-FT-912",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 2, Shelf F-15",
+    "acquisition_date": "2023-02-20"
+  },
+  {
+    "copy_id": "copy-dune-03",
+    "book_id": "book-dune",
+    "barcode": "LIB-FT-913",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 2, Shelf F-15",
+    "acquisition_date": "2023-04-01"
+  },
+  {
+    "copy_id": "copy-dune-04",
+    "book_id": "book-dune",
+    "barcode": "LIB-FT-914",
+    "status": "BORROWED",
+    "condition": "GOOD",
+    "location": "On Loan",
+    "acquisition_date": "2023-08-05"
+  },
+  {
+    "copy_id": "copy-sicp-01",
+    "book_id": "book-sicp",
+    "barcode": "LIB-CS-921",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 3, Shelf C-02",
+    "acquisition_date": "2023-01-25"
+  },
+  {
+    "copy_id": "copy-sicp-02",
+    "book_id": "book-sicp",
+    "barcode": "LIB-CS-922",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 3, Shelf C-02",
+    "acquisition_date": "2023-01-25"
+  },
+  {
+    "copy_id": "copy-sicp-03",
+    "book_id": "book-sicp",
+    "barcode": "LIB-CS-923",
+    "status": "BORROWED",
+    "condition": "GOOD",
+    "location": "On Loan",
+    "acquisition_date": "2023-07-10"
+  },
+  {
+    "copy_id": "copy-book-americanah-01",
+    "book_id": "book-americanah",
+    "barcode": "LIB-BES-101",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 1, Shelf B-01",
+    "acquisition_date": "2023-01-15"
+  },
+  {
+    "copy_id": "copy-book-americanah-02",
+    "book_id": "book-americanah",
+    "barcode": "LIB-BES-102",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 1, Shelf B-01",
+    "acquisition_date": "2023-01-15"
+  },
+  {
+    "copy_id": "copy-book-americanah-03",
+    "book_id": "book-americanah",
+    "barcode": "LIB-BES-103",
+    "status": "RESERVED",
+    "condition": "FAIR",
+    "location": "Hold Shelf #04",
+    "acquisition_date": "2023-01-15"
+  },
+  {
+    "copy_id": "copy-book-notes-grief-01",
+    "book_id": "book-notes-grief",
+    "barcode": "LIB-BIO-104",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 1, Shelf A-02",
+    "acquisition_date": "2023-02-15"
+  },
+  {
+    "copy_id": "copy-book-notes-grief-02",
+    "book_id": "book-notes-grief",
+    "barcode": "LIB-BIO-105",
+    "status": "RESERVED",
+    "condition": "GOOD",
+    "location": "Hold Shelf #03",
+    "acquisition_date": "2023-02-15"
+  },
+  {
+    "copy_id": "copy-book-recitatif-01",
+    "book_id": "book-recitatif",
+    "barcode": "LIB-BES-107",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 1, Shelf B-03",
+    "acquisition_date": "2023-03-15"
+  },
+  {
+    "copy_id": "copy-book-recitatif-02",
+    "book_id": "book-recitatif",
+    "barcode": "LIB-BES-108",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 1, Shelf B-03",
+    "acquisition_date": "2023-03-15"
+  },
+  {
+    "copy_id": "copy-book-recitatif-03",
+    "book_id": "book-recitatif",
+    "barcode": "LIB-BES-109",
+    "status": "RESERVED",
+    "condition": "FAIR",
+    "location": "Hold Shelf #04",
+    "acquisition_date": "2023-03-15"
+  },
+  {
+    "copy_id": "copy-book-after-quake-01",
+    "book_id": "book-after-quake",
+    "barcode": "LIB-LIT-110",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 2, Shelf M-04",
+    "acquisition_date": "2023-04-15"
+  },
+  {
+    "copy_id": "copy-book-after-quake-02",
+    "book_id": "book-after-quake",
+    "barcode": "LIB-LIT-111",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 2, Shelf M-04",
+    "acquisition_date": "2023-04-15"
+  },
+  {
+    "copy_id": "copy-book-after-quake-03",
+    "book_id": "book-after-quake",
+    "barcode": "LIB-LIT-112",
+    "status": "RESERVED",
+    "condition": "FAIR",
+    "location": "Hold Shelf #04",
+    "acquisition_date": "2023-04-15"
+  },
+  {
+    "copy_id": "copy-book-south-border-01",
+    "book_id": "book-south-border",
+    "barcode": "LIB-LIT-113",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 2, Shelf M-05",
+    "acquisition_date": "2023-05-15"
+  },
+  {
+    "copy_id": "copy-book-south-border-02",
+    "book_id": "book-south-border",
+    "barcode": "LIB-LIT-114",
+    "status": "BORROWED",
+    "condition": "GOOD",
+    "location": "On Loan",
+    "acquisition_date": "2023-05-15"
+  },
+  {
+    "copy_id": "copy-book-south-border-03",
+    "book_id": "book-south-border",
+    "barcode": "LIB-LIT-115",
+    "status": "RESERVED",
+    "condition": "FAIR",
+    "location": "Hold Shelf #04",
+    "acquisition_date": "2023-05-15"
+  },
+  {
+    "copy_id": "copy-book-hag-seed-01",
+    "book_id": "book-hag-seed",
+    "barcode": "LIB-LIT-116",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 2, Shelf M-06",
+    "acquisition_date": "2023-06-15"
+  },
+  {
+    "copy_id": "copy-book-hag-seed-02",
+    "book_id": "book-hag-seed",
+    "barcode": "LIB-LIT-117",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 2, Shelf M-06",
+    "acquisition_date": "2023-06-15"
+  },
+  {
+    "copy_id": "copy-book-maddaddam-01",
+    "book_id": "book-maddaddam",
+    "barcode": "LIB-FAN-119",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 2, Shelf F-07",
+    "acquisition_date": "2023-07-15"
+  },
+  {
+    "copy_id": "copy-book-maddaddam-02",
+    "book_id": "book-maddaddam",
+    "barcode": "LIB-FAN-120",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 2, Shelf F-07",
+    "acquisition_date": "2023-07-15"
+  },
+  {
+    "copy_id": "copy-book-maddaddam-03",
+    "book_id": "book-maddaddam",
+    "barcode": "LIB-FAN-121",
+    "status": "RESERVED",
+    "condition": "FAIR",
+    "location": "Hold Shelf #04",
+    "acquisition_date": "2023-07-15"
+  },
+  {
+    "copy_id": "copy-book-hush-little-girl-01",
+    "book_id": "book-hush-little-girl",
+    "barcode": "LIB-THR-122",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 1, Shelf T-08",
+    "acquisition_date": "2023-08-15"
+  },
+  {
+    "copy_id": "copy-book-hush-little-girl-02",
+    "book_id": "book-hush-little-girl",
+    "barcode": "LIB-THR-123",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 1, Shelf T-08",
+    "acquisition_date": "2023-08-15"
+  },
+  {
+    "copy_id": "copy-book-hush-little-girl-03",
+    "book_id": "book-hush-little-girl",
+    "barcode": "LIB-THR-124",
+    "status": "AVAILABLE",
+    "condition": "FAIR",
+    "location": "Floor 1, Shelf T-08",
+    "acquisition_date": "2023-08-15"
+  },
+  {
+    "copy_id": "copy-book-hush-little-girl-04",
+    "book_id": "book-hush-little-girl",
+    "barcode": "LIB-THR-125",
+    "status": "RESERVED",
+    "condition": "FAIR",
+    "location": "Hold Shelf #05",
+    "acquisition_date": "2023-08-15"
+  },
+  {
+    "copy_id": "copy-book-find-her-alive-01",
+    "book_id": "book-find-her-alive",
+    "barcode": "LIB-THR-125",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 1, Shelf T-09",
+    "acquisition_date": "2023-01-15"
+  },
+  {
+    "copy_id": "copy-book-find-her-alive-02",
+    "book_id": "book-find-her-alive",
+    "barcode": "LIB-THR-126",
+    "status": "BORROWED",
+    "condition": "GOOD",
+    "location": "On Loan",
+    "acquisition_date": "2023-01-15"
+  },
+  {
+    "copy_id": "copy-book-find-her-alive-03",
+    "book_id": "book-find-her-alive",
+    "barcode": "LIB-THR-127",
+    "status": "RESERVED",
+    "condition": "FAIR",
+    "location": "Hold Shelf #04",
+    "acquisition_date": "2023-01-15"
+  },
+  {
+    "copy_id": "copy-book-taken-grave-01",
+    "book_id": "book-taken-grave",
+    "barcode": "LIB-THR-128",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 1, Shelf T-10",
+    "acquisition_date": "2023-02-15"
+  },
+  {
+    "copy_id": "copy-book-taken-grave-02",
+    "book_id": "book-taken-grave",
+    "barcode": "LIB-THR-129",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 1, Shelf T-10",
+    "acquisition_date": "2023-02-15"
+  },
+  {
+    "copy_id": "copy-book-taken-grave-03",
+    "book_id": "book-taken-grave",
+    "barcode": "LIB-THR-130",
+    "status": "RESERVED",
+    "condition": "FAIR",
+    "location": "Hold Shelf #04",
+    "acquisition_date": "2023-02-15"
+  },
+  {
+    "copy_id": "copy-book-hidden-child-01",
+    "book_id": "book-hidden-child",
+    "barcode": "LIB-THR-131",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 1, Shelf T-11",
+    "acquisition_date": "2023-03-15"
+  },
+  {
+    "copy_id": "copy-book-hidden-child-02",
+    "book_id": "book-hidden-child",
+    "barcode": "LIB-THR-132",
+    "status": "RESERVED",
+    "condition": "GOOD",
+    "location": "Hold Shelf #03",
+    "acquisition_date": "2023-03-15"
+  },
+  {
+    "copy_id": "copy-book-alex-cross-01",
+    "book_id": "book-alex-cross",
+    "barcode": "LIB-THR-134",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 1, Shelf T-12",
+    "acquisition_date": "2023-04-15"
+  },
+  {
+    "copy_id": "copy-book-alex-cross-02",
+    "book_id": "book-alex-cross",
+    "barcode": "LIB-THR-135",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 1, Shelf T-12",
+    "acquisition_date": "2023-04-15"
+  },
+  {
+    "copy_id": "copy-book-alex-cross-03",
+    "book_id": "book-alex-cross",
+    "barcode": "LIB-THR-136",
+    "status": "BORROWED",
+    "condition": "FAIR",
+    "location": "On Loan",
+    "acquisition_date": "2023-04-15"
+  },
+  {
+    "copy_id": "copy-book-alex-cross-04",
+    "book_id": "book-alex-cross",
+    "barcode": "LIB-THR-137",
+    "status": "RESERVED",
+    "condition": "FAIR",
+    "location": "Hold Shelf #05",
+    "acquisition_date": "2023-04-15"
+  },
+  {
+    "copy_id": "copy-book-bestseller-code-01",
+    "book_id": "book-bestseller-code",
+    "barcode": "LIB-LIT-137",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 2, Shelf L-01",
+    "acquisition_date": "2023-05-15"
+  },
+  {
+    "copy_id": "copy-book-bestseller-code-02",
+    "book_id": "book-bestseller-code",
+    "barcode": "LIB-LIT-138",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 2, Shelf L-01",
+    "acquisition_date": "2023-05-15"
+  },
+  {
+    "copy_id": "copy-book-bestseller-code-03",
+    "book_id": "book-bestseller-code",
+    "barcode": "LIB-LIT-139",
+    "status": "RESERVED",
+    "condition": "FAIR",
+    "location": "Hold Shelf #04",
+    "acquisition_date": "2023-05-15"
+  },
+  {
+    "copy_id": "copy-book-bestseller-century-01",
+    "book_id": "book-bestseller-century",
+    "barcode": "LIB-LIT-140",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 2, Shelf L-02",
+    "acquisition_date": "2023-06-15"
+  },
+  {
+    "copy_id": "copy-book-bestseller-century-02",
+    "book_id": "book-bestseller-century",
+    "barcode": "LIB-LIT-141",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 2, Shelf L-02",
+    "acquisition_date": "2023-06-15"
+  },
+  {
+    "copy_id": "copy-book-hype-culture-01",
+    "book_id": "book-hype-culture",
+    "barcode": "LIB-LIT-143",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 2, Shelf L-03",
+    "acquisition_date": "2023-07-15"
+  },
+  {
+    "copy_id": "copy-book-hype-culture-02",
+    "book_id": "book-hype-culture",
+    "barcode": "LIB-LIT-144",
+    "status": "RESERVED",
+    "condition": "GOOD",
+    "location": "Hold Shelf #03",
+    "acquisition_date": "2023-07-15"
+  },
+  {
+    "copy_id": "copy-book-myth-superwoman-01",
+    "book_id": "book-myth-superwoman",
+    "barcode": "LIB-SOC-146",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 2, Shelf S-04",
+    "acquisition_date": "2023-08-15"
+  },
+  {
+    "copy_id": "copy-book-myth-superwoman-02",
+    "book_id": "book-myth-superwoman",
+    "barcode": "LIB-SOC-147",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 2, Shelf S-04",
+    "acquisition_date": "2023-08-15"
+  },
+  {
+    "copy_id": "copy-book-sisters-by-choice-01",
+    "book_id": "book-sisters-by-choice",
+    "barcode": "LIB-BES-149",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 1, Shelf B-05",
+    "acquisition_date": "2023-01-15"
+  },
+  {
+    "copy_id": "copy-book-sisters-by-choice-02",
+    "book_id": "book-sisters-by-choice",
+    "barcode": "LIB-BES-150",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 1, Shelf B-05",
+    "acquisition_date": "2023-01-15"
+  },
+  {
+    "copy_id": "copy-book-sisters-by-choice-03",
+    "book_id": "book-sisters-by-choice",
+    "barcode": "LIB-BES-151",
+    "status": "RESERVED",
+    "condition": "FAIR",
+    "location": "Hold Shelf #04",
+    "acquisition_date": "2023-01-15"
+  },
+  {
+    "copy_id": "copy-book-history-philosophy-01",
+    "book_id": "book-history-philosophy",
+    "barcode": "LIB-HIS-152",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 2, Shelf H-06",
+    "acquisition_date": "2023-02-15"
+  },
+  {
+    "copy_id": "copy-book-history-philosophy-02",
+    "book_id": "book-history-philosophy",
+    "barcode": "LIB-HIS-153",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 2, Shelf H-06",
+    "acquisition_date": "2023-02-15"
+  },
+  {
+    "copy_id": "copy-book-history-philosophy-03",
+    "book_id": "book-history-philosophy",
+    "barcode": "LIB-HIS-154",
+    "status": "RESERVED",
+    "condition": "FAIR",
+    "location": "Hold Shelf #04",
+    "acquisition_date": "2023-02-15"
+  },
+  {
+    "copy_id": "copy-book-irish-print-01",
+    "book_id": "book-irish-print",
+    "barcode": "LIB-HIS-155",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 2, Shelf H-07",
+    "acquisition_date": "2023-03-15"
+  },
+  {
+    "copy_id": "copy-book-irish-print-02",
+    "book_id": "book-irish-print",
+    "barcode": "LIB-HIS-156",
+    "status": "RESERVED",
+    "condition": "GOOD",
+    "location": "Hold Shelf #03",
+    "acquisition_date": "2023-03-15"
+  },
+  {
+    "copy_id": "copy-book-richard-wright-01",
+    "book_id": "book-richard-wright",
+    "barcode": "LIB-SOC-158",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 2, Shelf S-08",
+    "acquisition_date": "2023-04-15"
+  },
+  {
+    "copy_id": "copy-book-richard-wright-02",
+    "book_id": "book-richard-wright",
+    "barcode": "LIB-SOC-159",
+    "status": "RESERVED",
+    "condition": "GOOD",
+    "location": "Hold Shelf #03",
+    "acquisition_date": "2023-04-15"
+  },
+  {
+    "copy_id": "copy-book-popular-songs-01",
+    "book_id": "book-popular-songs",
+    "barcode": "LIB-MUS-161",
+    "status": "AVAILABLE",
+    "condition": "MINT",
+    "location": "Floor 1, Shelf M-09",
+    "acquisition_date": "2023-05-15"
+  },
+  {
+    "copy_id": "copy-book-popular-songs-02",
+    "book_id": "book-popular-songs",
+    "barcode": "LIB-MUS-162",
+    "status": "AVAILABLE",
+    "condition": "GOOD",
+    "location": "Floor 1, Shelf M-09",
+    "acquisition_date": "2023-05-15"
+  }
+];
+var INITIAL_USERS = [
+  {
+    id: "user-member-01",
+    name: "Prabakaran Menon",
+    email: "prabakaran.menon@smartlib.edu",
+    role: "member",
+    membershipId: "MEM-2024-8842",
+    department: "Department of Computer Science & Media",
+    phone: "+91 94471 23456",
+    avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80",
+    status: "ACTIVE",
+    joinedDate: "September 2023",
+    currentlyBorrowedCount: 2,
+    passwordHash: "733e72c7d1a5666cebcddd392b09a989e74bf2a9cddc862241cd3592e4552256"
+    // Password123!
+  },
+  {
+    id: "user-admin-01",
+    name: "Dr. K. S. Radhakrishnan",
+    email: "admin@smartlib.edu",
+    role: "admin",
+    membershipId: "ADM-1001-CHIEF",
+    department: "Central Academic Library Administration",
+    phone: "+91 98470 56789",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
+    status: "ACTIVE",
+    joinedDate: "January 2020",
+    currentlyBorrowedCount: 0,
+    passwordHash: "3bb20703d03a5fbf868e5de4fe96ce7392d8a854c40a3b4657e51548be7edaf0"
+    // Admin@SmartLib2026!
+  },
+  {
+    id: "user-member-02",
+    name: "Rahul Pillai",
+    email: "rahul.pillai@smartlib.edu",
+    role: "member",
+    membershipId: "MEM-2024-4190",
+    department: "Comparative Literature & Cultural Studies",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+    status: "ACTIVE",
+    joinedDate: "October 2023",
+    currentlyBorrowedCount: 1,
+    passwordHash: "733e72c7d1a5666cebcddd392b09a989e74bf2a9cddc862241cd3592e4552256"
+    // Password123!
+  },
+  {
+    id: "user-member-03",
+    name: "Anjali Nair",
+    email: "anjali.nair@smartlib.edu",
+    role: "member",
+    membershipId: "MEM-2024-5221",
+    department: "Cognitive Science & Linguistics",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+    status: "ACTIVE",
+    joinedDate: "November 2023",
+    currentlyBorrowedCount: 3,
+    passwordHash: "733e72c7d1a5666cebcddd392b09a989e74bf2a9cddc862241cd3592e4552256"
+    // Password123!
+  }
+];
+var DEMO_USERS = INITIAL_USERS;
+var INITIAL_TRANSACTIONS = [
+  {
+    transaction_id: "tx-2024-001",
+    user_id: "user-member-01",
+    userName: "Prabakaran Menon",
+    userEmail: "prabakaran.menon@smartlib.edu",
+    book_id: "book-hp-2",
+    bookTitle: "The Chambers of Secrets",
+    bookImage: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+    copy_id: "copy-hp2-01",
+    barcode: "LIB-HP2-201",
+    issue_date: "2024-09-08",
+    due_date: "2024-09-22",
+    status: "ACTIVE",
+    notes: "Currently reading: Chapter Five: Diagon Alley (154/300 pages)"
+  },
+  {
+    transaction_id: "tx-2024-002",
+    user_id: "user-member-01",
+    userName: "Prabakaran Menon",
+    userEmail: "prabakaran.menon@smartlib.edu",
+    book_id: "book-ai-modern",
+    bookTitle: "Artificial Intelligence: A Modern Approach",
+    bookImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80",
+    copy_id: "copy-ai-02",
+    barcode: "LIB-AI-502",
+    issue_date: "2024-09-01",
+    due_date: "2024-09-15",
+    status: "OVERDUE",
+    fineGenerated: 15,
+    notes: "3 days past due date (\u20B95.00/day standard university rate)"
+  },
+  {
+    transaction_id: "tx-2024-003",
+    user_id: "user-member-01",
+    userName: "Prabakaran Menon",
+    userEmail: "prabakaran.menon@smartlib.edu",
+    book_id: "book-clean-code",
+    bookTitle: "Clean Code",
+    bookImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80",
+    copy_id: "copy-cc-02",
+    barcode: "LIB-CS-302",
+    issue_date: "2024-08-10",
+    due_date: "2024-08-24",
+    return_date: "2024-08-23",
+    status: "RETURNED",
+    notes: "Returned in pristine condition"
+  },
+  {
+    transaction_id: "tx-2024-004",
+    user_id: "user-member-02",
+    userName: "Rahul Pillai",
+    userEmail: "rahul.pillai@smartlib.edu",
+    book_id: "book-hp-6",
+    bookTitle: "Harry Potter: Half Blood Prince",
+    bookImage: "https://images.unsplash.com/photo-1618666012174-83b441c0bc76?auto=format&fit=crop&w=600&q=80",
+    copy_id: "copy-hp6-03",
+    barcode: "LIB-HP6-103",
+    issue_date: "2024-09-12",
+    due_date: "2024-09-26",
+    status: "ACTIVE"
+  }
+];
+var INITIAL_RESERVATIONS = [
+  {
+    reservation_id: "res-8801",
+    user_id: "user-member-01",
+    userName: "Prabakaran Menon",
+    book_id: "book-ddia",
+    bookTitle: "Designing Data-Intensive Applications",
+    bookImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
+    reservation_date: "2024-09-14",
+    expiry_date: "2024-09-21",
+    status: "READY",
+    queuePosition: 1,
+    assignedCopyId: "copy-ddia-04"
+  },
+  {
+    reservation_id: "res-8802",
+    user_id: "user-member-01",
+    userName: "Prabakaran Menon",
+    book_id: "book-wise-mans-fear",
+    bookTitle: "The Wise Man\u2019s Fear",
+    bookImage: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80",
+    reservation_date: "2024-09-16",
+    expiry_date: "2024-09-23",
+    status: "PENDING",
+    queuePosition: 2
+  },
+  {
+    reservation_id: "res-8803",
+    user_id: "user-member-03",
+    userName: "Anjali Nair",
+    book_id: "book-hp-6",
+    bookTitle: "Harry Potter: Half Blood Prince",
+    bookImage: "https://images.unsplash.com/photo-1618666012174-83b441c0bc76?auto=format&fit=crop&w=600&q=80",
+    reservation_date: "2024-09-15",
+    expiry_date: "2024-09-22",
+    status: "READY",
+    queuePosition: 1,
+    assignedCopyId: "copy-hp6-04"
+  }
+];
+var INITIAL_FINES = [
+  {
+    fine_id: "fine-2024-101",
+    user_id: "user-member-01",
+    userName: "Prabakaran Menon",
+    transaction_id: "tx-2024-002",
+    bookTitle: "Artificial Intelligence: A Modern Approach",
+    amount: 15,
+    reason: "OVERDUE",
+    description: "3 days overdue on copy LIB-AI-502 (\u20B95.00 per calendar day)",
+    status: "UNPAID",
+    created_at: "2024-09-16"
+  },
+  {
+    fine_id: "fine-2024-082",
+    user_id: "user-member-01",
+    userName: "Prabakaran Menon",
+    transaction_id: "tx-2024-prev",
+    bookTitle: "Introduction to Algorithms (CLRS)",
+    amount: 10,
+    reason: "OVERDUE",
+    description: "2 days overdue - settled via portal checkout (\u20B95.00/day)",
+    status: "PAID",
+    created_at: "2024-06-18",
+    paid_at: "2024-06-19"
+  }
+];
+var INITIAL_DAMAGE_REPORTS = [
+  {
+    damage_id: "dmg-401",
+    copy_id: "copy-cc-05",
+    barcode: "LIB-CS-305",
+    bookTitle: "Clean Code",
+    user_id: "user-member-02",
+    userName: "Rahul Pillai",
+    damage_type: "Liquid spill across Chapters 8-10",
+    severity: "MODERATE",
+    description: "Coffee spill affecting page legibility. Spine remains intact.",
+    reported_date: "2024-08-29",
+    action_taken: "Isolated in drying press. Assessed for rebinding.",
+    status: "UNDER_REVIEW"
+  },
+  {
+    damage_id: "dmg-402",
+    copy_id: "copy-got3-04",
+    barcode: "LIB-FT-804",
+    bookTitle: "Game of Thrones Volume III",
+    user_id: "user-member-03",
+    userName: "Anjali Nair",
+    damage_type: "Torn front cover and missing appendix",
+    severity: "SEVERE",
+    description: "Damaged beyond circulation standard. Replacement copy ordered.",
+    reported_date: "2024-07-12",
+    action_taken: "Charged replacement fee of \u20B9550.00 to member account.",
+    status: "CHARGED"
+  }
+];
+var INITIAL_REVIEWS = [
+  {
+    "rating_id": "rev-01",
+    "user_id": "user-member-02",
+    "userName": "Rahul Pillai",
+    "userAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+    "book_id": "book-hp-6",
+    "rating": 5,
+    "review": "What a delightful and magical book it is! It indeed transports readers to the wizarding world. The Horcrux backstory adds deep emotional gravitas.",
+    "chapterTag": "Chapter Seventeen: A Sluggish Memory",
+    "created_at": "2 minutes ago"
+  },
+  {
+    "rating_id": "rev-02",
+    "user_id": "user-member-03",
+    "userName": "Anjali Nair",
+    "userAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+    "book_id": "book-hp-2",
+    "rating": 5,
+    "review": "What a delightful and magical chapter it is! It indeed transports readers to the wizarding world. The flying car sequence remains unforgettable.",
+    "chapterTag": "Chapter Five: Diagon Alley",
+    "created_at": "2 min ago"
+  },
+  {
+    "rating_id": "rev-03",
+    "user_id": "user-member-01",
+    "userName": "Prabakaran Menon",
+    "userAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80",
+    "book_id": "book-clean-code",
+    "rating": 5,
+    "review": "A classic that every software engineer should absorb. The principles on naming, unit testing, and functions as single-purpose units transformed how I approach pull requests.",
+    "chapterTag": "Chapter 3: Functions",
+    "created_at": "3 days ago"
+  },
+  {
+    "rating_id": "rev-04",
+    "user_id": "user-member-01",
+    "userName": "Prabakaran Menon",
+    "userAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80",
+    "book_id": "book-ddia",
+    "rating": 5,
+    "review": "Hands-down the best systems book ever written. Clear diagrams of SSTables, LSM-trees, and Paxos consensus.",
+    "chapterTag": "Chapter 7: Transactions",
+    "created_at": "1 week ago"
+  },
+  {
+    "rating_id": "rev-05",
+    "user_id": "user-member-01",
+    "userName": "Prabakaran Menon",
+    "userAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80",
+    "book_id": "book-americanah",
+    "rating": 5,
+    "review": "Adichie's prose is piercing, funny, and utterly honest. Ifemelu's blog posts throughout the novel capture diasporic identity with unmatched precision.",
+    "chapterTag": "Part 2: Princeton Blog Entries",
+    "created_at": "1 day ago"
+  },
+  {
+    "rating_id": "rev-06",
+    "user_id": "user-member-02",
+    "userName": "Rahul Pillai",
+    "userAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+    "book_id": "book-hush-little-girl",
+    "rating": 5,
+    "review": "Lisa Regan delivers non-stop adrenaline from page one. The snowstorm setting heightens the claustrophobic dread.",
+    "chapterTag": "Chapter 14: The Frozen Orchard",
+    "created_at": "2 days ago"
+  },
+  {
+    "rating_id": "rev-07",
+    "user_id": "user-member-03",
+    "userName": "Anjali Nair",
+    "userAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+    "book_id": "book-bestseller-code",
+    "rating": 5,
+    "review": "Fascinating convergence of text mining, NLP topic modeling, and narrative structure. A must-read for data scientists interested in digital humanities.",
+    "chapterTag": "Chapter 4: The 70/30 Plot Heuristic",
+    "created_at": "4 days ago"
+  },
+  {
+    "rating_id": "rev-08",
+    "user_id": "user-member-01",
+    "userName": "Prabakaran Menon",
+    "userAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80",
+    "book_id": "book-after-quake",
+    "rating": 5,
+    "review": `Murakami's subtlety here is astounding. "Super-Frog Saves Tokyo" is unforgettable\u2014absurdist yet emotionally profound.`,
+    "chapterTag": "Story 3: Super-Frog Saves Tokyo",
+    "created_at": "5 days ago"
+  }
+];
+var INITIAL_NOTIFICATIONS = [
+  {
+    id: "notif-1",
+    user_id: "user-member-01",
+    title: "Book Ready for Pickup",
+    message: 'Your reservation for "Designing Data-Intensive Applications" is ready at Hold Shelf #08.',
+    type: "reservation",
+    date: "10 minutes ago",
+    read: false
+  },
+  {
+    id: "notif-2",
+    user_id: "user-member-01",
+    title: "Overdue Notice & Fine Generated",
+    message: '"Artificial Intelligence: A Modern Approach" is 3 days overdue. An overdue fine of \u20B915.00 has been recorded.',
+    type: "overdue",
+    date: "1 day ago",
+    read: false
+  },
+  {
+    id: "notif-3",
+    user_id: "user-member-01",
+    title: "Reading Schedule Reminder",
+    message: 'You planned 45 minutes of reading today for "The Chambers of Secrets". You are at page 154.',
+    type: "due",
+    date: "Today, 9:00 AM",
+    read: true
+  }
+];
+var INITIAL_AUDIT_LOGS = [
+  {
+    log_id: "aud-901",
+    user_id: "user-admin-01",
+    userName: "Dr. K. S. Radhakrishnan",
+    action: "BOOK_COPY_ADDED",
+    entity_type: "BOOK_COPY",
+    entity_id: "copy-hp6-04",
+    timestamp: "2024-09-18 14:22:10",
+    metadata: "Added physical barcode LIB-HP6-104 to Rack 2, Shelf F-12"
+  },
+  {
+    log_id: "aud-902",
+    user_id: "user-admin-01",
+    userName: "Dr. K. S. Radhakrishnan",
+    action: "RESERVATION_FULFILLED",
+    entity_type: "RESERVATION",
+    entity_id: "res-8801",
+    timestamp: "2024-09-18 11:05:44",
+    metadata: "Assigned copy copy-ddia-04 to user Prabakaran Menon (Queue #1)"
+  },
+  {
+    log_id: "aud-903",
+    user_id: "user-admin-01",
+    userName: "Dr. K. S. Radhakrishnan",
+    action: "FINE_GENERATED",
+    entity_type: "FINE",
+    entity_id: "fine-2024-101",
+    timestamp: "2024-09-16 00:01:00",
+    metadata: "Automated batch cron: \u20B915.00 generated on overdue loan tx-2024-002"
+  }
+];
