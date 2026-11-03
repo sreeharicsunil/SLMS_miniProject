@@ -4,6 +4,16 @@ A React/Vite library-management prototype with a FastAPI/PostgreSQL backend and 
 
 > **Project status: prototype, not production-ready.** The polished frontend is primarily a client-side demo backed by bundled sample data and browser storage. Its authentication and role checks run in the browser and can be bypassed; they do not protect real accounts or data. The backend has separate authentication and authorization, but most frontend screens are not connected to those backend endpoints. Do not deploy this as-is or use it for real user records, credentials, payments, or library operations.
 
+## Live Demo
+
+Explore the deployed application:
+
+**[Smart Library Management System](https://slms-mini-project.vercel.app/)**
+
+> Note: The deployed frontend primarily demonstrates the
+> application's UI and client-side workflows. Backend
+> API and local Ollama functionality require separate setup.
+
 ## What is included
 
 - **Frontend:** React 19, TypeScript, Vite, Tailwind CSS, and Motion.
